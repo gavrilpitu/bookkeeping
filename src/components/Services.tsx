@@ -1,0 +1,89 @@
+import React from 'react';
+import { Calculator, TrendingUp, Clock, Settings } from 'lucide-react';
+
+const Services: React.FC = () => {
+  const services = [
+    {
+      icon: Calculator,
+      title: "Bookkeeping & Accounting",
+      description: "Complete monthly bookkeeping including transaction categorization, bank reconciliation, and financial statement preparation.",
+      features: ["Daily transaction entry", "Bank reconciliation", "Financial statements", "Accounts payable/receivable", "Tax-ready books"]
+    },
+    {
+      icon: Clock,
+      title: "QuickBooks Cleanup & Catch-Up",
+      description: "Behind on your books? We fix and organize everything fast so you can file taxes and make decisions with confidence.",
+      features: ["Rebuild months or years of records", "Import statements with advanced tools", "Every transaction reviewed & corrected", "Tax-ready handoff for your CPA"]
+    },
+    {
+      icon: Settings,
+      title: "QuickBooks Setup",
+      description: "Get your QuickBooks configured correctly from the start with a professional setup tailored to your business.",
+      features: ["Initial company file setup", "Chart of accounts customization", "Bank & credit card connections", "System optimization & training"]
+    },
+    {
+      icon: TrendingUp,
+      title: "Financial Reporting",
+      description: "Detailed financial reports and analysis to help you make informed business decisions and track performance.",
+      features: ["Monthly P&L reports", "Cash flow analysis", "Budget vs actual", "Custom reporting"]
+    },
+  ];
+
+  return (
+    <section id="services" className="pb-12 lg:pb-16 pt-4 lg:pt-6 bg-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
+            Comprehensive Bookkeeping Services
+          </h2>
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+            We provide end-to-end financial services designed to keep your business running smoothly and your books in perfect order.
+          </p>
+        </div>
+
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            return (
+              <div
+                key={index}
+                className="bg-white border border-gray-200 rounded-xl p-6 hover:shadow-xl hover:border-blue-200 transition-all duration-300 group"
+              >
+                <div className="flex items-center mb-4">
+                  <div className="bg-blue-100 p-3 rounded-lg group-hover:bg-blue-200 transition-colors">
+                    <IconComponent className="h-6 w-6 text-blue-700" />
+                  </div>
+                </div>
+                <h3 className="text-xl font-semibold text-gray-900 mb-3">
+                  {service.title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {service.description}
+                </p>
+                <ul className="space-y-2">
+                  {service.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center text-sm text-gray-700">
+                      <div className="w-1.5 h-1.5 bg-teal-600 rounded-full mr-3 flex-shrink-0"></div>
+                      {feature}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            );
+          })}
+        </div>
+
+        <div className="text-center mt-8">
+          <button
+            onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+            className="bg-blue-700 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+          >
+            Discuss Your Needs
+          </button>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Services;
