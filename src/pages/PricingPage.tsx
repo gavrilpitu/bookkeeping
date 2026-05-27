@@ -114,6 +114,53 @@ const PricingPage: React.FC = () => {
             </p>
           </div>
 
+          <div className="mt-12 mb-16">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
+              What You're Actually Getting
+            </h2>
+            <div className="max-w-2xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+              <table className="w-full border-collapse">
+                <thead>
+                  <tr className="bg-gray-50 border-b border-gray-200">
+                    <th className="text-left py-3.5 px-6 text-sm font-semibold text-gray-700 uppercase tracking-wide">Deliverable</th>
+                    <th className="text-right py-3.5 px-6 text-sm font-semibold text-gray-700 uppercase tracking-wide">Market Value</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {[
+                    { label: "Monthly bookkeeping & bank reconciliation", value: "$500/mo" },
+                    { label: "P&L + balance sheet reports delivered by the 5th", value: "$200/mo" },
+                    { label: "QuickBooks setup & chart of accounts", value: "$750 one-time" },
+                    { label: "60-min monthly financial clarity call (Bonus)", value: "$300/mo", bonus: true },
+                    { label: "Tax-ready year-end CPA handoff package (Bonus)", value: "$500/yr", bonus: true },
+                    { label: "90-day hidden deductions audit (Bonus)", value: "$400 one-time", bonus: true },
+                    { label: "Unlimited email support 48-hr response (Bonus)", value: "$150/mo", bonus: true },
+                  ].map((row, i) => (
+                    <tr key={i} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
+                      <td className={`py-3.5 px-6 text-sm ${row.bonus ? 'text-blue-700' : 'text-gray-700'}`}>
+                        {row.label}
+                      </td>
+                      <td className={`py-3.5 px-6 text-sm text-right font-medium ${row.bonus ? 'text-blue-700' : 'text-gray-700'}`}>
+                        {row.value}
+                      </td>
+                    </tr>
+                  ))}
+                  <tr className="bg-gray-900">
+                    <td className="py-4 px-6 text-sm font-bold text-white">Total value</td>
+                    <td className="py-4 px-6 text-sm font-bold text-white text-right">~$1,900+/mo</td>
+                  </tr>
+                  <tr className="bg-green-50">
+                    <td className="py-4 px-6 text-sm font-bold text-green-700">Your price</td>
+                    <td className="py-4 px-6 text-sm font-bold text-green-700 text-right">Starting at $497/mo</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <p className="text-center text-sm italic text-gray-500 mt-4">
+              All plans include our Accurate Books by the 5th guarantee.
+            </p>
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-6 items-start mt-16">
             {tiers.map((tier, index) => (
               <div
