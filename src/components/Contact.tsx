@@ -193,9 +193,13 @@ const Contact: React.FC = () => {
                     value={formData.message}
                     onChange={handleInputChange}
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
-                    placeholder="Describe your business and bookkeeping needs..."
+                    placeholder="What's your biggest bookkeeping headache right now?"
                   ></textarea>
                 </div>
+
+                <p className="text-sm italic text-gray-400 text-center">
+                  We only take 5 new clients per month. If you're seeing this, spots are still available.
+                </p>
 
                 <button
                   type="submit"
@@ -206,7 +210,7 @@ const Contact: React.FC = () => {
                       : 'bg-blue-700 text-white hover:bg-blue-800 hover:shadow-xl transform hover:-translate-y-1'
                   }`}
                 >
-                  <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Claim My Free Strategy Call'}</span>
                   {!isSubmitting && <Send className="h-5 w-5" />}
                 </button>
               </form>
