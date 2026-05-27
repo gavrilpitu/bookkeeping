@@ -27,7 +27,7 @@ const BookkeeperCostCalculator: React.FC = () => {
 
         {/* Section label */}
         <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
-          Why hire a bookkeeper when you can own one?
+          Small business owners are losing $5,000/mo to in-house bookkeeping
         </p>
 
         {/* Subheading */}
