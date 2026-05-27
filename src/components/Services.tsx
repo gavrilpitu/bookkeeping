@@ -38,10 +38,10 @@ const Services: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-            Comprehensive Bookkeeping Services
+            Every Service You Need. Zero Surprises.
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            We provide end-to-end financial services designed to keep your business running smoothly and your books in perfect order.
+            Clean books, tax-ready financials, and QuickBooks done right — delivered every month without you lifting a finger.
           </p>
         </div>
 
