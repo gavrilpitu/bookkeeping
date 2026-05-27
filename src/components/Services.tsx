@@ -7,24 +7,28 @@ const Services: React.FC = () => {
       icon: Calculator,
       title: "Bookkeeping & Accounting",
       description: "Complete monthly bookkeeping including transaction categorization, bank reconciliation, and financial statement preparation.",
+      tagline: "So you always know exactly where your money went.",
       features: ["Daily transaction entry", "Bank reconciliation", "Financial statements", "Accounts payable/receivable", "Tax-ready books"]
     },
     {
       icon: Clock,
       title: "QuickBooks Cleanup & Catch-Up",
       description: "Behind on your books? We fix and organize everything fast so you can file taxes and make decisions with confidence.",
+      tagline: "Stop filing taxes on messy books — we fix it fast.",
       features: ["Rebuild months or years of records", "Import statements with advanced tools", "Every transaction reviewed & corrected", "Tax-ready handoff for your CPA"]
     },
     {
       icon: Settings,
       title: "QuickBooks Setup",
       description: "Get your QuickBooks configured correctly from the start with a professional setup tailored to your business.",
+      tagline: "Get set up right the first time so you never pay to fix it later.",
       features: ["Initial company file setup", "Chart of accounts customization", "Bank & credit card connections", "System optimization & training"]
     },
     {
       icon: TrendingUp,
       title: "Financial Reporting",
       description: "Detailed financial reports and analysis to help you make informed business decisions and track performance.",
+      tagline: "Make confident decisions with real numbers, not gut feelings.",
       features: ["Monthly P&L reports", "Cash flow analysis", "Budget vs actual", "Custom reporting"]
     },
   ];
@@ -57,8 +61,11 @@ const Services: React.FC = () => {
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
                   {service.title}
                 </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
+                <p className="text-gray-600 mb-3 leading-relaxed">
                   {service.description}
+                </p>
+                <p className="text-sm italic text-blue-700 mb-5 leading-snug">
+                  {service.tagline}
                 </p>
                 <ul className="space-y-2">
                   {service.features.map((feature, featureIndex) => (
