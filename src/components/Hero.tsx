@@ -68,12 +68,6 @@ const Hero: React.FC = () => {
                   <span className="text-gray-800 font-semibold text-sm leading-snug">(248) 595-2511</span>
                 </div>
               </a>
-              <div className="flex items-center gap-3">
-                <img src="/proadvisorgold.png" alt="QuickBooks ProAdvisor Gold" className="h-24 w-auto object-contain" />
-                <img src="/quickboo.png" alt="QuickBooks Certified" className="h-24 w-auto object-contain" />
-                <img src="/quickbooks2.png" alt="QuickBooks" className="h-24 w-auto object-contain" />
-                <img src="/quickbookspayroll.png" alt="QuickBooks Payroll" className="h-24 w-auto object-contain" />
-              </div>
             </div>
           </div>
 
