@@ -1,27 +1,7 @@
-import React, { useState } from 'react';
-import { ArrowRight, CheckCircle, Phone } from 'lucide-react';
-
-const fmt = (n: number) => '$' + Math.round(n).toLocaleString('en-US');
+import React from 'react';
+import { ArrowRight, CheckCircle, Phone, Star } from 'lucide-react';
 
 const Hero: React.FC = () => {
-  const [salary, setSalary] = useState(50000);
-  const [overhead, setOverhead] = useState(25);
-
-  const pct = overhead / 100;
-  const payrollTax = salary * 0.0765;
-  const benefits   = salary * pct * 0.55;
-  const pto        = salary * 0.038;
-  const fixed      = 2500 + 900 + 1200;
-  const total      = salary + payrollTax + benefits + pto + fixed;
-  const gpcAnnual  = 7164;
-  const savings    = total - gpcAnnual;
-
-  const scrollToContact = () => {
-    const element = document.getElementById('contact');
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-    }
-  };
 
   return (
     <section id="home" className="pt-16 bg-gradient-to-br from-blue-50 via-white to-teal-50 flex items-center min-h-screen">
@@ -97,76 +77,50 @@ const Hero: React.FC = () => {
             </div>
           </div>
 
-          <div className="relative hidden lg:block">
-            <div className="bg-white rounded-2xl shadow-xl border border-gray-100 p-6 space-y-5">
-              <div>
-                <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-1">
-                  True cost of hiring in-house
-                </p>
-                <p className="text-xs text-gray-500">Drag sliders to model your market</p>
+          <div className="relative hidden lg:flex flex-col gap-6">
+            {/* Badge row */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+              <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4 text-center">Certified & Verified</p>
+              <div className="flex items-center justify-center gap-3">
+                <img src="/proadvisorgold.png" alt="QuickBooks ProAdvisor Gold" className="h-20 w-auto object-contain" />
+                <img src="/quickboo.png" alt="QuickBooks Certified" className="h-20 w-auto object-contain" />
+                <img src="/quickbooks2.png" alt="QuickBooks" className="h-20 w-auto object-contain" />
+                <img src="/quickbookspayroll.png" alt="QuickBooks Payroll" className="h-20 w-auto object-contain" />
               </div>
+            </div>
 
-              {/* Salary slider */}
-              <div>
-                <div className="flex justify-between items-center mb-1.5">
-                  <span className="text-xs font-medium text-gray-700">Bookkeeper salary</span>
-                  <span className="text-xs font-semibold text-gray-900">{fmt(salary)}/yr</span>
+            {/* Stats row */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
+              <div className="grid grid-cols-3 divide-x divide-gray-100">
+                <div className="text-center px-4">
+                  <p className="font-bold text-gray-900 text-sm leading-snug">100% On-Time</p>
+                  <p className="text-xs text-gray-500 mt-0.5">Delivery</p>
                 </div>
-                <input
-                  type="range" min={35000} max={75000} step={1000} value={salary}
-                  onChange={e => setSalary(Number(e.target.value))}
-                  className="w-full h-1 bg-gray-200 rounded appearance-none cursor-pointer accent-gray-800"
-                />
-                <div className="flex justify-between text-xs text-gray-400 mt-0.5">
-                  <span>$35k</span><span>$75k</span>
+                <div className="text-center px-4">
+                  <p className="font-bold text-gray-900 text-sm leading-snug">ProAdvisor Gold</p>
+                  <p className="text-xs text-gray-500 mt-0.5">QuickBooks Certified</p>
                 </div>
-              </div>
-
-              {/* Overhead slider */}
-              <div>
-                <div className="flex justify-between items-center mb-1.5">
-                  <span className="text-xs font-medium text-gray-700">Benefits overhead</span>
-                  <span className="text-xs font-semibold text-gray-900">{overhead}%</span>
-                </div>
-                <input
-                  type="range" min={18} max={35} step={1} value={overhead}
-                  onChange={e => setOverhead(Number(e.target.value))}
-                  className="w-full h-1 bg-gray-200 rounded appearance-none cursor-pointer accent-gray-800"
-                />
-                <div className="flex justify-between text-xs text-gray-400 mt-0.5">
-                  <span>18%</span><span>35%</span>
+                <div className="text-center px-4">
+                  <p className="font-bold text-gray-900 text-sm leading-snug">Arizona &amp; Nationwide</p>
+                  <p className="text-xs text-gray-500 mt-0.5">Remote-Friendly</p>
                 </div>
               </div>
+            </div>
 
-              {/* Cost rows */}
-              <div className="border border-gray-100 rounded-lg overflow-hidden text-xs">
-                {[
-                  { label: 'Base salary',             val: salary },
-                  { label: 'Payroll taxes (FICA)',     val: payrollTax },
-                  { label: 'Benefits',                 val: benefits },
-                  { label: 'PTO & sick leave',         val: pto },
-                  { label: 'Recruiting / software / training', val: fixed },
-                ].map((row, i) => (
-                  <div key={i} className="flex justify-between px-3 py-2 border-b border-gray-100 last:border-0">
-                    <span className="text-gray-600">{row.label}</span>
-                    <span className="text-gray-800 tabular-nums font-medium">{fmt(row.val)}</span>
-                  </div>
+            {/* Testimonial card */}
+            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
+              <div className="flex gap-0.5 mb-3">
+                {[...Array(5)].map((_, i) => (
+                  <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
                 ))}
-                <div className="flex justify-between px-3 py-2 bg-gray-50 font-semibold border-t border-gray-200">
-                  <span className="text-gray-900">Total in-house cost</span>
-                  <span className="text-gray-900 tabular-nums">{fmt(total)}</span>
-                </div>
-                <div className="flex justify-between px-3 py-2" style={{ color: '#4f46e5' }}>
-                  <span className="font-medium">GPC full service</span>
-                  <span className="tabular-nums font-medium">{fmt(gpcAnnual)}</span>
-                </div>
-                <div className="flex justify-between px-3 py-2.5 bg-green-50 border-t border-green-100 rounded-b-lg">
-                  <span className="font-semibold text-green-700">Your annual savings</span>
-                  <span className="font-bold text-green-700 tabular-nums">{fmt(savings)}</span>
-                </div>
               </div>
-
-              <p className="text-xs text-gray-400 italic">Data: ZipRecruiter, BLS, QuickBooks 2025.</p>
+              <p className="text-gray-700 text-sm leading-relaxed mb-4">
+                "Gavril is very sharp with numbers and genuinely cares about doing things correctly. I'd highly recommend him."
+              </p>
+              <div>
+                <p className="font-semibold text-gray-900 text-sm">Benjamin Illioi</p>
+                <p className="text-xs text-gray-500">Owner, Absolute Iron Doors</p>
+              </div>
             </div>
           </div>
         </div>
