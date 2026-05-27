@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
                 Every Month — Or You Don't Pay
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
-                <strong>Professional bookkeeping services</strong> delivered by a <strong>QuickBooks Certified ProAdvisor</strong> — supporting both <strong>QuickBooks Online and QuickBooks Desktop</strong>. Proudly serving small business owners, contractors, medical &amp; dental practices, solopreneurs, e-commerce sellers, and professional service firms across Phoenix, Scottsdale, Peoria &amp; beyond.
+                Expert bookkeeping delivered by a <strong>QuickBooks Certified ProAdvisor Gold</strong> — so your books are clean, your taxes are ready, and you never lose sleep over your finances again. Serving small business owners, contractors, medical &amp; dental practices, and professional service firms across Phoenix, Scottsdale, Peoria &amp; beyond.
               </p>
             </div>
 
