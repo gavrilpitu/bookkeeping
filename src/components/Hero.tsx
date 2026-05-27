@@ -30,9 +30,9 @@ const Hero: React.FC = () => {
           <div className="space-y-6">
             <div className="space-y-3">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
-                Professional
-                <span className="text-blue-700 block">Bookkeeping</span>
-                Made Simple
+                Guaranteed
+                <span className="text-blue-700 block">Clean Books</span>
+                Every Month — Or You Don't Pay
               </h1>
               <p className="text-xl text-gray-600 leading-relaxed">
                 <strong>Professional bookkeeping services</strong> delivered by a <strong>QuickBooks Certified ProAdvisor</strong> — supporting both <strong>QuickBooks Online and QuickBooks Desktop</strong>. Proudly serving small business owners, contractors, medical &amp; dental practices, solopreneurs, e-commerce sellers, and professional service firms across Phoenix, Scottsdale, Peoria &amp; beyond.
