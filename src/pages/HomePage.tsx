@@ -6,12 +6,14 @@ import ServiceAreas from '../components/ServiceAreas';
 import About from '../components/About';
 import Contact from '../components/Contact';
 import BookkeeperCostCalculator from '../components/BookkeeperCostCalculator';
+import GuaranteeBanner from '../components/GuaranteeBanner';
 
 const HomePage: React.FC = () => {
   return (
     <>
       <Hero />
       <BookkeeperCostCalculator />
+      <GuaranteeBanner />
       <About />
       <Services />
       <Testimonials />
