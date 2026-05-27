@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="bg-blue-700 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-all duration-300 font-semibold text-lg flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <span>Get Free Consultation</span>
+                <span>Book My Free Financial Health Check</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
               <button
