@@ -95,7 +95,7 @@ const Hero: React.FC = () => {
                   <p className="text-xs text-gray-500 mt-0.5">QuickBooks Certified</p>
                 </div>
                 <div className="text-center px-4">
-                  <p className="font-bold text-gray-900 text-sm leading-snug">Arizona &amp; Nationwide</p>
+                  <p className="font-bold text-gray-900 text-sm leading-snug">Proudly Serving Arizona</p>
                   <p className="text-xs text-gray-500 mt-0.5">Remote-Friendly</p>
                 </div>
               </div>
