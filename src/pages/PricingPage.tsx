@@ -161,6 +161,13 @@ const PricingPage: React.FC = () => {
             </p>
           </div>
 
+          <div className="flex justify-center mb-6">
+            <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 text-sm font-medium px-5 py-2.5 rounded-full shadow-sm">
+              <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 animate-pulse"></span>
+              Only 5 new client spots open per month — sign up this week and get a free 30-minute Financial Health Check ($150 value).
+            </div>
+          </div>
+
           <div className="grid lg:grid-cols-3 gap-6 items-start mt-16">
             {tiers.map((tier, index) => (
               <div
