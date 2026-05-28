@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Check, Sparkles, ArrowRight } from 'lucide-react';
 import Contact from '../components/Contact';
 
+type TierKey = 'essential' | 'growth' | 'scale';
+
 interface PricingTier {
+  key: TierKey;
   name: string;
   description: string;
   price: string;
@@ -13,56 +16,101 @@ interface PricingTier {
   cta: string;
 }
 
+interface ValueRow {
+  deliverable: string;
+  value: string;
+  bonus?: boolean;
+}
+
+const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice: string }> = {
+  essential: {
+    rows: [
+      { deliverable: 'Monthly bookkeeping & bank reconciliation', value: '$400/mo' },
+      { deliverable: 'P&L + balance sheet by the 5th', value: '$150/mo' },
+      { deliverable: 'QuickBooks setup & optimization', value: '$600 one-time' },
+      { deliverable: 'Unlimited email support', value: '$100/mo', bonus: true },
+      { deliverable: 'CPA-ready year-end handoff package', value: '$400/yr', bonus: true },
+    ],
+    total: '~$1,250+/mo',
+    yourPrice: '$397/mo',
+  },
+  growth: {
+    rows: [
+      { deliverable: 'Everything in Essential', value: '$1,250/mo' },
+      { deliverable: '60-min monthly financial clarity call', value: '$300/mo', bonus: true },
+      { deliverable: '90-day hidden deductions audit', value: '$400 one-time', bonus: true },
+      { deliverable: 'Light AR & AP tracking', value: '$200/mo', bonus: true },
+      { deliverable: 'Quarterly performance summary', value: '$150/mo', bonus: true },
+    ],
+    total: '~$2,300+/mo',
+    yourPrice: '$697/mo',
+  },
+  scale: {
+    rows: [
+      { deliverable: 'Everything in Growth', value: '$2,300/mo' },
+      { deliverable: 'Custom KPI dashboards', value: '$300/mo', bonus: true },
+      { deliverable: 'Accrual, payroll & loan tracking', value: '$250/mo', bonus: true },
+      { deliverable: 'Monthly Loom walk-through', value: '$150/mo', bonus: true },
+      { deliverable: 'Dedicated account manager', value: '$400/mo', bonus: true },
+    ],
+    total: '~$3,400+/mo',
+    yourPrice: '$1,197/mo',
+  },
+};
+
 const PricingPage: React.FC = () => {
+  const [selectedTier, setSelectedTier] = useState<TierKey>('growth');
+
   const tiers: PricingTier[] = [
     {
-      name: "Starter",
-      description: "Perfect for freelancers and sole proprietors just getting started",
-      price: "$497",
-      period: "/month",
+      key: 'essential',
+      name: 'Essential',
+      description: 'Perfect for freelancers and sole proprietors getting their books in order.',
+      price: '$397',
+      period: '/mo',
       features: [
-        "Up to 150 transactions/month",
-        "Monthly bank and card reconciliation",
-        "Expense categorization with bank rules",
-        "Monthly financial statements",
-        "QuickBooks Online integration",
-        "Priority email & phone support",
-        "CPA ready books for tax time"
+        'Monthly bookkeeping and reconciliation',
+        'P&L and balance sheet by the 5th',
+        'QuickBooks setup and optimization',
+        'Unlimited email support',
+        'CPA-ready books',
+        'Up to 150 transactions',
       ],
-      cta: "Get Started"
+      cta: 'Get Started',
     },
     {
-      name: "Growth",
-      description: "Ideal for growing small businesses with increasing complexity",
-      price: "$1,497",
-      period: "/month",
+      key: 'growth',
+      name: 'Growth',
+      description: 'Ideal for growing small businesses that want clarity and momentum.',
+      price: '$697',
+      period: '/mo',
       features: [
-        "Up to 500 transactions/month",
-        "Everything in Starter",
-        "Light AR and AP tracking",
-        "Light bill pay",
-        "Quarterly performance summary",
-        "Priority email & phone support",
-        "CPA ready books for tax time"
+        'Everything in Essential',
+        '60-min monthly clarity call',
+        '90-day hidden deductions audit',
+        'Light AR and AP tracking',
+        'Quarterly performance summary',
+        'Up to 400 transactions',
       ],
       highlighted: true,
-      cta: "Most Popular"
+      cta: 'Most Popular',
     },
     {
-      name: "Enterprise",
-      description: "Comprehensive solution for established businesses",
-      price: "Starting at $1,000",
-      period: "/month",
+      key: 'scale',
+      name: 'Scale',
+      description: 'Built for established businesses that need full-service financial operations.',
+      price: '$1,197',
+      period: '/mo',
       features: [
-        "Unlimited transactions/month",
-        "Everything in Growth",
-        "Custom reports and KPI dashboards",
-        "Accrual, payroll, and loan tracking",
-        "Monthly loom walk-throughs",
-        "CPA ready books for tax time"
+        'Everything in Growth',
+        'Custom KPI dashboards',
+        'Accrual, payroll, and loan tracking',
+        'Monthly Loom walk-through',
+        'Dedicated account manager',
+        'Unlimited transactions',
       ],
-      cta: "Contact Us"
-    }
+      cta: 'Get Started',
+    },
   ];
 
   const scrollToContact = () => {
@@ -71,29 +119,37 @@ const PricingPage: React.FC = () => {
 
   const faqs = [
     {
-      question: "How does billing work?",
-      answer: "We bill monthly at the beginning of each service period. You can cancel anytime with 30 days notice and won't be charged for the following month."
+      question: 'How does billing work?',
+      answer: 'We bill monthly at the beginning of each service period. You can cancel anytime with 30 days notice and won\'t be charged for the following month.',
     },
     {
-      question: "What if I exceed my transaction limit?",
-      answer: "We'll notify you when you're approaching your limit and discuss upgrading to a plan that better fits your needs. We never charge surprise overage fees."
+      question: 'What if I exceed my transaction limit?',
+      answer: 'We\'ll notify you when you\'re approaching your limit and discuss upgrading to a plan that better fits your needs. We never charge surprise overage fees.',
     },
     {
-      question: "Can I switch plans?",
-      answer: "Yes, you can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle."
+      question: 'Can I switch plans?',
+      answer: 'Yes, you can upgrade or downgrade your plan at any time. Changes take effect at the start of your next billing cycle.',
     },
     {
-      question: "Do you offer annual discounts?",
-      answer: "Yes! Pay annually and receive 2 months free. Contact us to set up annual billing."
+      question: 'Do you offer annual discounts?',
+      answer: 'Yes! Pay annually and receive 2 months free. Contact us to set up annual billing.',
     },
     {
-      question: "What accounting software do you support?",
-      answer: "We exclusively work with QuickBooks products, including QuickBooks Online and QuickBooks Desktop."
+      question: 'What accounting software do you support?',
+      answer: 'We exclusively work with QuickBooks products, including QuickBooks Online and QuickBooks Desktop.',
     },
     {
-      question: "How quickly can I get started?",
-      answer: "Most clients are fully onboarded within 1-2 weeks. We'll gather your financial data, set up systems, and begin managing your books."
-    }
+      question: 'How quickly can I get started?',
+      answer: 'Most clients are fully onboarded within 1–2 weeks. We\'ll gather your financial data, set up systems, and begin managing your books.',
+    },
+  ];
+
+  const stack = valueStacks[selectedTier];
+
+  const tabLabels: { key: TierKey; label: string }[] = [
+    { key: 'essential', label: 'Essential' },
+    { key: 'growth', label: 'Growth' },
+    { key: 'scale', label: 'Scale' },
   ];
 
   return (
@@ -113,11 +169,31 @@ const PricingPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="mt-12 mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-8">
+          {/* Value stack */}
+          <div className="mt-12 mb-16 max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold text-gray-900 text-center mb-6">
               What You're Actually Getting
             </h2>
-            <div className="max-w-2xl mx-auto overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
+
+            {/* Tier tabs */}
+            <div className="flex rounded-xl border border-gray-200 bg-gray-50 p-1 mb-4 gap-1">
+              {tabLabels.map(({ key, label }) => (
+                <button
+                  key={key}
+                  onClick={() => setSelectedTier(key)}
+                  className={`flex-1 py-2 px-4 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                    selectedTier === key
+                      ? 'bg-white text-blue-700 shadow-sm border border-gray-200'
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  {label}
+                </button>
+              ))}
+            </div>
+
+            {/* Value table */}
+            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
               <table className="w-full border-collapse">
                 <thead>
                   <tr className="bg-gray-50 border-b border-gray-200">
@@ -126,18 +202,10 @@ const PricingPage: React.FC = () => {
                   </tr>
                 </thead>
                 <tbody>
-                  {[
-                    { label: "Monthly bookkeeping & bank reconciliation", value: "$500/mo" },
-                    { label: "P&L + balance sheet reports delivered by the 5th", value: "$200/mo" },
-                    { label: "QuickBooks setup & chart of accounts", value: "$750 one-time" },
-                    { label: "60-min monthly financial clarity call (Bonus)", value: "$300/mo", bonus: true },
-                    { label: "Tax-ready year-end CPA handoff package (Bonus)", value: "$500/yr", bonus: true },
-                    { label: "90-day hidden deductions audit (Bonus)", value: "$400 one-time", bonus: true },
-                    { label: "Unlimited email support 48-hr response (Bonus)", value: "$150/mo", bonus: true },
-                  ].map((row, i) => (
+                  {stack.rows.map((row, i) => (
                     <tr key={i} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
                       <td className={`py-3.5 px-6 text-sm ${row.bonus ? 'text-blue-700' : 'text-gray-700'}`}>
-                        {row.label}
+                        {row.deliverable}
                       </td>
                       <td className={`py-3.5 px-6 text-sm text-right font-medium ${row.bonus ? 'text-blue-700' : 'text-gray-700'}`}>
                         {row.value}
@@ -146,11 +214,11 @@ const PricingPage: React.FC = () => {
                   ))}
                   <tr className="bg-gray-900">
                     <td className="py-4 px-6 text-sm font-bold text-white">Total value</td>
-                    <td className="py-4 px-6 text-sm font-bold text-white text-right">~$1,900+/mo</td>
+                    <td className="py-4 px-6 text-sm font-bold text-white text-right">{stack.total}</td>
                   </tr>
                   <tr className="bg-green-50">
                     <td className="py-4 px-6 text-sm font-bold text-green-700">Your price</td>
-                    <td className="py-4 px-6 text-sm font-bold text-green-700 text-right">Starting at $497/mo</td>
+                    <td className="py-4 px-6 text-sm font-bold text-green-700 text-right">{stack.yourPrice}</td>
                   </tr>
                 </tbody>
               </table>
@@ -160,175 +228,98 @@ const PricingPage: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex justify-center mb-6">
+          {/* Scarcity pill */}
+          <div className="flex justify-center mb-10">
             <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 text-sm font-medium px-5 py-2.5 rounded-full shadow-sm">
               <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 animate-pulse"></span>
               Only 5 new client spots open per month — sign up this week and get a free 30-minute Financial Health Check ($150 value).
             </div>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-6 items-start mt-16">
-            {tiers.map((tier, index) => (
-              <div
-                key={index}
-                className={`relative rounded-2xl p-6 transition-all duration-300 ${
-                  tier.highlighted
-                    ? 'bg-blue-700 text-white shadow-2xl scale-105'
-                    : 'bg-white border border-gray-200 hover:shadow-xl hover:border-blue-200'
-                }`}
-              >
-                {tier.highlighted && (
-                  <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-                    <span className="bg-teal-500 text-white text-sm font-semibold px-4 py-1.5 rounded-full">
-                      Most Popular
-                    </span>
-                  </div>
-                )}
-
-                <div className="mb-4">
-                  <h3 className={`text-2xl font-bold mb-1 ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                    {tier.name}
-                  </h3>
-                  <p className={`text-sm leading-relaxed ${tier.highlighted ? 'text-blue-100' : 'text-gray-600'}`}>
-                    {tier.description}
-                  </p>
-                </div>
-
-                <div className="mb-5">
-                  <div className="flex items-baseline gap-1">
-                    <span className={`text-4xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
-                      {tier.price}
-                    </span>
-                    <span className={tier.highlighted ? 'text-blue-200' : 'text-gray-500'}>
-                      {tier.period}
-                    </span>
-                  </div>
-                </div>
-
-                <ul className="space-y-3 mb-6">
-                  {tier.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
-                        tier.highlighted ? 'bg-blue-600' : 'bg-teal-100'
-                      }`}>
-                        <Check className={`w-3 h-3 ${tier.highlighted ? 'text-white' : 'text-teal-600'}`} />
-                      </div>
-                      <span className={`text-sm ${tier.highlighted ? 'text-blue-50' : 'text-gray-700'}`}>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-
-                <button
-                  onClick={scrollToContact}
-                  className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
+          {/* Pricing cards */}
+          <div className="grid lg:grid-cols-3 gap-6 items-start">
+            {tiers.map((tier) => {
+              const isSelected = selectedTier === tier.key;
+              return (
+                <div
+                  key={tier.key}
+                  onClick={() => setSelectedTier(tier.key)}
+                  className={`relative rounded-2xl p-6 cursor-pointer transition-all duration-300 ${
                     tier.highlighted
-                      ? 'bg-white text-blue-700 hover:bg-blue-50 shadow-lg'
-                      : 'bg-blue-700 text-white hover:bg-blue-800 shadow-md hover:shadow-lg'
+                      ? 'bg-blue-700 text-white shadow-2xl scale-105'
+                      : isSelected
+                      ? 'bg-white border-2 border-blue-500 shadow-xl'
+                      : 'bg-white border border-gray-200 hover:shadow-xl hover:border-blue-200'
                   }`}
                 >
-                  {tier.cta}
-                </button>
-              </div>
-            ))}
+                  {tier.highlighted && (
+                    <div className="absolute -top-4 left-1/2 -translate-x-1/2">
+                      <span className="bg-teal-500 text-white text-sm font-semibold px-4 py-1.5 rounded-full">
+                        Most Popular
+                      </span>
+                    </div>
+                  )}
+
+                  <div className="mb-4">
+                    <h3 className={`text-2xl font-bold mb-1 ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                      {tier.name}
+                    </h3>
+                    <p className={`text-sm leading-relaxed ${tier.highlighted ? 'text-blue-100' : 'text-gray-600'}`}>
+                      {tier.description}
+                    </p>
+                  </div>
+
+                  <div className="mb-5">
+                    <div className="flex items-baseline gap-1">
+                      <span className={`text-4xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                        {tier.price}
+                      </span>
+                      <span className={tier.highlighted ? 'text-blue-200' : 'text-gray-500'}>
+                        {tier.period}
+                      </span>
+                    </div>
+                  </div>
+
+                  <ul className="space-y-3 mb-6">
+                    {tier.features.map((feature, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                          tier.highlighted ? 'bg-blue-600' : 'bg-teal-100'
+                        }`}>
+                          <Check className={`w-3 h-3 ${tier.highlighted ? 'text-white' : 'text-teal-600'}`} />
+                        </div>
+                        <span className={`text-sm ${tier.highlighted ? 'text-blue-50' : 'text-gray-700'}`}>
+                          {feature}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+
+                  <button
+                    onClick={(e) => { e.stopPropagation(); scrollToContact(); }}
+                    className={`w-full py-3 px-6 rounded-xl font-semibold transition-all duration-300 ${
+                      tier.highlighted
+                        ? 'bg-white text-blue-700 hover:bg-blue-50 shadow-lg'
+                        : 'bg-blue-700 text-white hover:bg-blue-800 shadow-md hover:shadow-lg'
+                    }`}
+                  >
+                    {tier.highlighted ? 'Get Started' : tier.cta}
+                  </button>
+                </div>
+              );
+            })}
           </div>
 
           <div className="mt-8 text-center">
             <p className="text-gray-600 mb-3">All plans include:</p>
             <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-700">
-              {[
-                "No setup fees",
-                "Cancel anytime",
-                "Secure data handling",
-                "100% satisfaction guarantee"
-              ].map((item, index) => (
-                <span key={index} className="flex items-center gap-2">
+              {['No setup fees', 'Cancel anytime', 'Secure data handling', '100% satisfaction guarantee'].map((item, i) => (
+                <span key={i} className="flex items-center gap-2">
                   <Check className="w-4 h-4 text-teal-600" />
                   {item}
                 </span>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="py-10 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-2">
-              Compare Plans
-            </h2>
-            <p className="text-gray-600">
-              See what's included in each plan at a glance
-            </p>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full border-collapse">
-              <thead>
-                <tr className="border-b border-gray-200">
-                  <th className="text-left py-4 px-6 font-semibold text-gray-900">Features</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Starter</th>
-                  <th className="text-center py-4 px-6 font-semibold text-blue-700 bg-blue-50 rounded-t-lg">Growth</th>
-                  <th className="text-center py-4 px-6 font-semibold text-gray-900">Enterprise</th>
-                </tr>
-              </thead>
-              <tbody>
-                {[
-                  { feature: "Transactions/Month", starter: "Up to 150", growth: "Up to 350", enterprise: "Unlimited" },
-                  { feature: "Bank & Card Reconciliation", starter: true, growth: true, enterprise: true },
-                  { feature: "Expense Categorization with Bank Rules", starter: true, growth: true, enterprise: true },
-                  { feature: "Monthly Financial Statements", starter: true, growth: true, enterprise: true },
-                  { feature: "QuickBooks Online Integration", starter: true, growth: true, enterprise: true },
-                  { feature: "AR & AP Tracking", starter: false, growth: "Light", enterprise: true },
-                  { feature: "Bill Pay", starter: false, growth: "Light", enterprise: true },
-                  { feature: "Quarterly Performance Summary", starter: false, growth: true, enterprise: true },
-                  { feature: "Custom Reports & KPI Dashboards", starter: false, growth: false, enterprise: true },
-                  { feature: "Accrual, Payroll & Loan Tracking", starter: false, growth: false, enterprise: true },
-                  { feature: "Loom Walk-throughs", starter: false, growth: false, enterprise: "Monthly" },
-                  { feature: "Support", starter: "Priority", growth: "Priority", enterprise: "Priority" },
-                  { feature: "CPA Ready Books for Tax Time", starter: true, growth: true, enterprise: true },
-                ].map((row, index) => (
-                  <tr key={index} className="border-b border-gray-100">
-                    <td className="py-4 px-6 text-gray-700">{row.feature}</td>
-                    <td className="py-4 px-6 text-center">
-                      {typeof row.starter === 'boolean' ? (
-                        row.starter ? (
-                          <Check className="w-5 h-5 text-teal-600 mx-auto" />
-                        ) : (
-                          <span className="text-gray-300">-</span>
-                        )
-                      ) : (
-                        <span className="text-gray-700">{row.starter}</span>
-                      )}
-                    </td>
-                    <td className="py-4 px-6 text-center bg-blue-50">
-                      {typeof row.growth === 'boolean' ? (
-                        row.growth ? (
-                          <Check className="w-5 h-5 text-teal-600 mx-auto" />
-                        ) : (
-                          <span className="text-gray-300">-</span>
-                        )
-                      ) : (
-                        <span className="text-gray-900 font-medium">{row.growth}</span>
-                      )}
-                    </td>
-                    <td className="py-4 px-6 text-center">
-                      {typeof row.enterprise === 'boolean' ? (
-                        row.enterprise ? (
-                          <Check className="w-5 h-5 text-teal-600 mx-auto" />
-                        ) : (
-                          <span className="text-gray-300">-</span>
-                        )
-                      ) : (
-                        <span className="text-gray-700">{row.enterprise}</span>
-                      )}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
           </div>
         </div>
       </section>
@@ -348,11 +339,11 @@ const PricingPage: React.FC = () => {
                 </p>
                 <ul className="space-y-3">
                   {[
-                    "Multi-entity bookkeeping",
-                    "Industry-specific reporting",
-                    "Transaction-based pricing that scales with your volume"
-                  ].map((item, index) => (
-                    <li key={index} className="flex items-center gap-3 text-gray-700">
+                    'Multi-entity bookkeeping',
+                    'Industry-specific reporting',
+                    'Transaction-based pricing that scales with your volume',
+                  ].map((item, i) => (
+                    <li key={i} className="flex items-center gap-3 text-gray-700">
                       <div className="w-1.5 h-1.5 bg-teal-600 rounded-full"></div>
                       {item}
                     </li>
@@ -387,8 +378,8 @@ const PricingPage: React.FC = () => {
           </div>
 
           <div className="space-y-4">
-            {faqs.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-xl p-6">
+            {faqs.map((faq, i) => (
+              <div key={i} className="bg-gray-50 rounded-xl p-6">
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">
                   {faq.question}
                 </h3>
