@@ -32,7 +32,7 @@ const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice:
       { deliverable: 'CPA-ready year-end handoff package', value: '$400/yr', bonus: true },
     ],
     total: '~$1,250+/mo',
-    yourPrice: '$397/mo',
+    yourPrice: '$497/mo',
   },
   growth: {
     rows: [
@@ -43,7 +43,7 @@ const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice:
       { deliverable: 'Quarterly performance summary', value: '$150/mo', bonus: true },
     ],
     total: '~$2,300+/mo',
-    yourPrice: '$697/mo',
+    yourPrice: '$1,097/mo',
   },
   scale: {
     rows: [
@@ -53,8 +53,8 @@ const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice:
       { deliverable: 'Monthly Loom walk-through', value: '$150/mo', bonus: true },
       { deliverable: 'Dedicated account manager', value: '$400/mo', bonus: true },
     ],
-    total: '~$3,400+/mo',
-    yourPrice: '$1,197/mo',
+    total: '~$4,200+/mo',
+    yourPrice: '$1,997/mo',
   },
 };
 
@@ -66,7 +66,7 @@ const PricingPage: React.FC = () => {
       key: 'essential',
       name: 'Essential',
       description: 'Perfect for freelancers and sole proprietors getting their books in order.',
-      price: '$397',
+      price: '$497',
       period: '/mo',
       features: [
         'Monthly bookkeeping and reconciliation',
@@ -82,7 +82,7 @@ const PricingPage: React.FC = () => {
       key: 'growth',
       name: 'Growth',
       description: 'Ideal for growing small businesses that want clarity and momentum.',
-      price: '$697',
+      price: '$1,097',
       period: '/mo',
       features: [
         'Everything in Essential',
@@ -98,8 +98,8 @@ const PricingPage: React.FC = () => {
     {
       key: 'scale',
       name: 'Scale',
-      description: 'Built for established businesses that need full-service financial operations.',
-      price: '$1,197',
+      description: 'For established businesses that need a dedicated CFO-level financial partner at a fraction of the cost.',
+      price: '$1,997',
       period: '/mo',
       features: [
         'Everything in Growth',
