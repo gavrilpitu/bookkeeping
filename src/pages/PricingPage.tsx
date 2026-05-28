@@ -159,7 +159,7 @@ const PricingPage: React.FC = () => {
           <div className="text-center mb-8">
             <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium mb-3">
               <Sparkles className="w-4 h-4" />
-              Grand Slam Offer
+              Transparent Pricing
             </span>
             <h1 className="text-4xl font-bold text-gray-900 mb-3">
               One Simple Investment. Guaranteed Results.
