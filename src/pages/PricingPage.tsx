@@ -106,11 +106,10 @@ const PricingPage: React.FC = () => {
               Transparent Pricing
             </span>
             <h1 className="text-4xl font-bold text-gray-900 mb-3">
-              Plans That Scale With Your Business
+              One Simple Investment. Guaranteed Results.
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Choose the plan that fits your needs. All plans include our core bookkeeping
-              services with no hidden fees or long-term contracts.
+              Every plan includes our Accurate Books by the 5th guarantee. No long-term contracts. Cancel anytime.
             </p>
           </div>
 
