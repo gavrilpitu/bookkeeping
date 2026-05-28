@@ -159,7 +159,7 @@ const PricingPage: React.FC = () => {
           <div className="text-center mb-8">
             <span className="inline-flex items-center gap-2 bg-blue-100 text-blue-700 px-4 py-1.5 rounded-full text-sm font-medium mb-3">
               <Sparkles className="w-4 h-4" />
-              Transparent Pricing
+              Grand Slam Offer
             </span>
             <h1 className="text-4xl font-bold text-gray-900 mb-3">
               One Simple Investment. Guaranteed Results.
@@ -226,6 +226,37 @@ const PricingPage: React.FC = () => {
             <p className="text-center text-sm italic text-gray-500 mt-4">
               All plans include our Accurate Books by the 5th guarantee.
             </p>
+          </div>
+
+          {/* What Happens When You Sign Up */}
+          <div className="mb-14">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              What Happens When You Sign Up
+            </h2>
+            <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
+              {[
+                { step: 1, timing: 'Day 1–2', title: 'Onboarding', description: 'We onboard your books and connect QuickBooks.' },
+                { step: 2, timing: 'Days 3–7', title: 'Reconciliation', description: 'We reconcile your accounts and identify any gaps.' },
+                { step: 3, timing: 'Day 14', title: 'First Snapshot', description: 'You receive your first financial snapshot.' },
+                { step: 4, timing: 'Day 30', title: 'Clean P&L', description: 'Your first clean P&L delivered — guaranteed.' },
+              ].map(({ step, timing, title, description }) => (
+                <div key={step} className="relative bg-white border border-gray-200 rounded-2xl p-5 shadow-sm hover:shadow-md transition-shadow duration-200">
+                  <div className="flex items-center gap-3 mb-3">
+                    <div className="w-9 h-9 rounded-full bg-blue-700 text-white flex items-center justify-center text-sm font-bold flex-shrink-0">
+                      {step}
+                    </div>
+                    <span className="text-xs font-semibold text-blue-600 bg-blue-50 px-2.5 py-1 rounded-full">{timing}</span>
+                  </div>
+                  <h3 className="text-base font-bold text-gray-900 mb-1">{title}</h3>
+                  <p className="text-sm text-gray-600 leading-relaxed">{description}</p>
+                  {step < 4 && (
+                    <div className="hidden lg:block absolute top-1/2 -right-2.5 -translate-y-1/2 z-10">
+                      <ArrowRight className="w-4 h-4 text-gray-300" />
+                    </div>
+                  )}
+                </div>
+              ))}
+            </div>
           </div>
 
           {/* Scarcity pill */}
