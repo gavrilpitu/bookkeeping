@@ -58,6 +58,137 @@ const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice:
   },
 };
 
+interface CostRow {
+  label: string;
+  amount: string;
+}
+
+interface ComparisonTier {
+  key: TierKey;
+  label: string;
+  vsLabel: string;
+  rows: CostRow[];
+  marketTotal: string;
+  gpcPrice: string;
+  savings: string;
+}
+
+const comparisonTiers: ComparisonTier[] = [
+  {
+    key: 'essential',
+    label: 'Essential',
+    vsLabel: 'vs. Hiring a Bookkeeper',
+    rows: [
+      { label: 'Part-time bookkeeper (20 hrs/mo)', amount: '$3,600/mo' },
+      { label: 'QuickBooks subscription', amount: '$85/mo' },
+      { label: 'Payroll taxes & benefits', amount: '$720/mo' },
+      { label: 'Recruiting & onboarding costs', amount: '$1,205/mo' },
+    ],
+    marketTotal: '$5,610/mo',
+    gpcPrice: '$497/mo',
+    savings: '$5,113/mo',
+  },
+  {
+    key: 'growth',
+    label: 'Growth',
+    vsLabel: 'vs. Bookkeeper + Accountant',
+    rows: [
+      { label: 'Part-time bookkeeper (20 hrs/mo)', amount: '$3,600/mo' },
+      { label: 'Part-time accountant (10 hrs/mo)', amount: '$2,800/mo' },
+      { label: 'QuickBooks subscription', amount: '$85/mo' },
+      { label: 'Payroll taxes & benefits (est.)', amount: '$1,169/mo' },
+    ],
+    marketTotal: '$7,654/mo',
+    gpcPrice: '$1,097/mo',
+    savings: '$6,557/mo',
+  },
+  {
+    key: 'scale',
+    label: 'Scale',
+    vsLabel: 'vs. Full CFO Team',
+    rows: [
+      { label: 'Full-time CFO salary (prorated)', amount: '$10,000/mo' },
+      { label: 'Senior accountant (full-time)', amount: '$5,200/mo' },
+      { label: 'QuickBooks + reporting tools', amount: '$390/mo' },
+      { label: 'Benefits & overhead (est. 30%)', amount: '$800/mo' },
+    ],
+    marketTotal: '$16,390/mo',
+    gpcPrice: '$1,997/mo',
+    savings: '$14,393/mo',
+  },
+];
+
+const CostComparison: React.FC = () => {
+  const [active, setActive] = useState<TierKey>('growth');
+  const tier = comparisonTiers.find((t) => t.key === active)!;
+
+  return (
+    <div className="mb-14">
+      <h2 className="text-2xl font-bold text-gray-900 text-center mb-2">
+        What It Would Cost You Otherwise
+      </h2>
+      <p className="text-sm text-gray-500 text-center mb-7">
+        See how GPC stacks up against hiring in-house.
+      </p>
+
+      <div className="max-w-2xl mx-auto">
+        {/* Tabs */}
+        <div className="flex rounded-xl border border-gray-200 bg-gray-50 p-1 mb-5 gap-1">
+          {comparisonTiers.map(({ key, label }) => (
+            <button
+              key={key}
+              onClick={() => setActive(key)}
+              className={`flex-1 py-2 px-4 rounded-lg text-sm font-semibold transition-all duration-200 ${
+                active === key
+                  ? 'bg-white text-blue-700 shadow-sm border border-gray-200'
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              {label}
+            </button>
+          ))}
+        </div>
+
+        {/* Table */}
+        <div className="rounded-2xl overflow-hidden border border-gray-200 shadow-sm">
+          <table className="w-full text-left">
+            <thead>
+              <tr className="bg-gray-50 border-b border-gray-200">
+                <th className="py-3 px-5 text-xs font-semibold text-gray-500 uppercase tracking-wide">
+                  {tier.vsLabel}
+                </th>
+                <th className="py-3 px-5 text-xs font-semibold text-gray-500 uppercase tracking-wide text-right">
+                  Monthly Cost
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {tier.rows.map((row, i) => (
+                <tr key={i} className="border-b border-gray-100 bg-white hover:bg-gray-50 transition-colors">
+                  <td className="py-3.5 px-5 text-sm text-gray-700">{row.label}</td>
+                  <td className="py-3.5 px-5 text-sm text-gray-700 text-right font-medium">{row.amount}</td>
+                </tr>
+              ))}
+              <tr className="bg-gray-900">
+                <td className="py-4 px-5 text-sm font-bold text-white">Market total</td>
+                <td className="py-4 px-5 text-sm font-bold text-white text-right">{tier.marketTotal}</td>
+              </tr>
+              <tr className="bg-blue-700">
+                <td className="py-4 px-5 text-sm font-bold text-white">GPC {tier.label} plan</td>
+                <td className="py-4 px-5 text-sm font-bold text-white text-right">{tier.gpcPrice}</td>
+              </tr>
+              <tr className="bg-green-50">
+                <td className="py-4 px-5 text-sm font-bold text-green-700">You save</td>
+                <td className="py-4 px-5 text-sm font-bold text-green-700 text-right">{tier.savings}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  );
+};
+
 const PricingPage: React.FC = () => {
   const [selectedTier, setSelectedTier] = useState<TierKey>('growth');
 
@@ -258,6 +389,9 @@ const PricingPage: React.FC = () => {
               ))}
             </div>
           </div>
+
+          {/* Cost comparison */}
+          <CostComparison />
 
           {/* Scarcity pill */}
           <div className="flex justify-center mb-10">
