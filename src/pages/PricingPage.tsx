@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Check, Sparkles, ArrowRight } from 'lucide-react';
+import { Check, Sparkles, ArrowRight, ShieldCheck } from 'lucide-react';
 import Contact from '../components/Contact';
 
 type TierKey = 'essential' | 'growth' | 'scale';
@@ -65,7 +65,7 @@ const PricingPage: React.FC = () => {
     {
       key: 'essential',
       name: 'Essential',
-      description: 'Perfect for freelancers and sole proprietors getting their books in order.',
+      description: 'Clean books delivered by the 5th every month. Stop guessing where your money went.',
       price: '$497',
       period: '/mo',
       features: [
@@ -81,13 +81,13 @@ const PricingPage: React.FC = () => {
     {
       key: 'growth',
       name: 'Growth',
-      description: 'Ideal for growing small businesses that want clarity and momentum.',
+      description: 'Never be surprised by your numbers again. Clarity, strategy, and zero tax-time panic.',
       price: '$1,097',
       period: '/mo',
       features: [
         'Everything in Essential',
-        '60-min monthly clarity call',
         '90-day hidden deductions audit',
+        '60-min monthly clarity call',
         'Light AR and AP tracking',
         'Quarterly performance summary',
         'Up to 400 transactions',
@@ -98,7 +98,7 @@ const PricingPage: React.FC = () => {
     {
       key: 'scale',
       name: 'Scale',
-      description: 'For established businesses that need a dedicated CFO-level financial partner at a fraction of the cost.',
+      description: 'A dedicated CFO-level partner for a fraction of the hire. Forecasting, strategy, and full financial command.',
       price: '$1,997',
       period: '/mo',
       features: [
@@ -281,19 +281,34 @@ const PricingPage: React.FC = () => {
                   </div>
 
                   <ul className="space-y-3 mb-6">
-                    {tier.features.map((feature, i) => (
-                      <li key={i} className="flex items-start gap-3">
-                        <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
-                          tier.highlighted ? 'bg-blue-600' : 'bg-teal-100'
-                        }`}>
-                          <Check className={`w-3 h-3 ${tier.highlighted ? 'text-white' : 'text-teal-600'}`} />
-                        </div>
-                        <span className={`text-sm ${tier.highlighted ? 'text-blue-50' : 'text-gray-700'}`}>
-                          {feature}
-                        </span>
-                      </li>
-                    ))}
+                    {tier.features.map((feature, i) => {
+                      const isDeductionsAudit = tier.key === 'growth' && feature === '90-day hidden deductions audit';
+                      return (
+                        <li key={i} className="flex items-start gap-3">
+                          <div className={`flex-shrink-0 w-5 h-5 rounded-full flex items-center justify-center mt-0.5 ${
+                            tier.highlighted ? 'bg-blue-600' : 'bg-teal-100'
+                          }`}>
+                            <Check className={`w-3 h-3 ${tier.highlighted ? 'text-white' : 'text-teal-600'}`} />
+                          </div>
+                          <span className={`text-sm ${tier.highlighted ? 'text-blue-50' : 'text-gray-700'}`}>
+                            {feature}
+                            {isDeductionsAudit && (
+                              <span className="text-green-400 font-medium"> (finds avg $2,000–$8,000 in missed write-offs)</span>
+                            )}
+                          </span>
+                        </li>
+                      );
+                    })}
                   </ul>
+
+                  <div className={`flex items-center gap-2 mb-4 px-3 py-2 rounded-lg ${
+                    tier.highlighted ? 'bg-green-500/20' : 'bg-green-50 border border-green-200'
+                  }`}>
+                    <ShieldCheck className={`w-4 h-4 flex-shrink-0 ${tier.highlighted ? 'text-green-300' : 'text-green-600'}`} />
+                    <span className={`text-xs font-semibold ${tier.highlighted ? 'text-green-200' : 'text-green-700'}`}>
+                      Accurate Books by the 5th or it's free
+                    </span>
+                  </div>
 
                   <button
                     onClick={(e) => { e.stopPropagation(); scrollToContact(); }}
