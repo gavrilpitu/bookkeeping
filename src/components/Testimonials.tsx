@@ -28,14 +28,6 @@ const testimonials: Testimonial[] = [
     avatarColor: "bg-pink-700",
   },
   {
-    name: "Sam Pitu",
-    title: "Owner, Care Placement Agency",
-    quote: "Great experience with GPC Bookkeeping. Gavril is professional, helpful, and easy to work with. Everything was handled smoothly and on time. Highly recommend.",
-    rating: 5,
-    initials: "SP",
-    avatarColor: "bg-orange-600",
-  },
-  {
     name: "George Barbu",
     title: "Owner, HVAC",
     quote: "Working with Gavril has been a huge help. He's organized and very prompt with communication. If you're looking for someone trustworthy and detail-oriented to help manage your finances, this is the business to go with.",
@@ -116,6 +108,14 @@ const testimonials: Testimonial[] = [
     rating: 5,
     initials: "JF",
     avatarColor: "bg-green-700",
+  },
+  {
+    name: "Sam Pitu",
+    title: "Owner, Care Placement Agency",
+    quote: "Great experience with GPC Bookkeeping. Gavril is professional, helpful, and easy to work with. Everything was handled smoothly and on time. Highly recommend.",
+    rating: 5,
+    initials: "SP",
+    avatarColor: "bg-orange-600",
   },
 ];
 
