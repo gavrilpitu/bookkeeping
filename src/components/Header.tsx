@@ -93,12 +93,14 @@ const Header: React.FC = () => {
             >
               Service Areas
             </button>
-            <button
-              onClick={() => scrollToSection('contact')}
+            <a
+              href="https://calendly.com/gavril-gpcbookkeeping/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors font-medium"
             >
               Get Started — 5 Spots Left
-            </button>
+            </a>
           </nav>
 
           <button
@@ -148,12 +150,14 @@ const Header: React.FC = () => {
               >
                 Service Areas
               </button>
-              <button
-                onClick={() => scrollToSection('contact')}
+              <a
+                href="https://calendly.com/gavril-gpcbookkeeping/30min"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="bg-blue-700 text-white block px-3 py-2 text-base font-medium w-full text-left rounded-lg hover:bg-blue-800"
               >
                 Get Started — 5 Spots Left
-              </button>
+              </a>
             </div>
           </div>
         )}

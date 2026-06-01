@@ -245,7 +245,7 @@ const PricingPage: React.FC = () => {
   ];
 
   const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+    window.open('https://calendly.com/gavril-gpcbookkeeping/30min', '_blank');
   };
 
   const faqs = [
