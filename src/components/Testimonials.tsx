@@ -12,6 +12,22 @@ interface Testimonial {
 
 const testimonials: Testimonial[] = [
   {
+    name: "Brian Luca",
+    title: "Owner, Desert Sanctuary Assisted Living LLC",
+    quote: "Gavril is highly skilled in bookkeeping. His QuickBooks expertise made a huge difference for me. I've recommended him to family who love to work with him as well.",
+    rating: 5,
+    initials: "BL",
+    avatarColor: "bg-sky-700",
+  },
+  {
+    name: "Benjamin Illioi",
+    title: "Owner, Absolute Iron Doors",
+    quote: "Gavril is very sharp with numbers and genuinely cares about doing things correctly. I'd highly recommend him to anyone needing bookkeeping help.",
+    rating: 5,
+    initials: "BI",
+    avatarColor: "bg-pink-700",
+  },
+  {
     name: "RiverglenCare LLC",
     quote: "Takes care of all my accounting needs and really knows how to stay on top of things!",
     rating: 5,
@@ -95,22 +111,6 @@ const testimonials: Testimonial[] = [
     rating: 5,
     initials: "MJ",
     avatarColor: "bg-red-700",
-  },
-  {
-    name: "Brian Luca",
-    title: "Owner, Desert Sanctuary Assisted Living LLC",
-    quote: "Gavril is highly skilled in bookkeeping. His QuickBooks expertise made a huge difference for me. I've recommended him to family who love to work with him as well.",
-    rating: 5,
-    initials: "BL",
-    avatarColor: "bg-sky-700",
-  },
-  {
-    name: "Benjamin Illioi",
-    title: "Owner, Absolute Iron Doors",
-    quote: "Gavril is very sharp with numbers and genuinely cares about doing things correctly. I'd highly recommend him to anyone needing bookkeeping help.",
-    rating: 5,
-    initials: "BI",
-    avatarColor: "bg-pink-700",
   },
 ];
 
