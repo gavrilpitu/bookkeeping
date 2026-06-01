@@ -64,6 +64,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "Sam Pitu",
+    title: "Owner, Care Placement Agency",
     quote: "Great experience with GPC Bookkeeping. Gavril is professional, helpful, and easy to work with. Everything was handled smoothly and on time. Highly recommend.",
     rating: 5,
     initials: "SP",
@@ -71,6 +72,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "George Barbu",
+    title: "Owner, HVAC",
     quote: "Working with Gavril has been a huge help. He's organized and very prompt with communication. If you're looking for someone trustworthy and detail-oriented to help manage your finances, this is the business to go with.",
     rating: 5,
     initials: "GB",
@@ -78,14 +80,15 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "Dennis Cleminte",
+    title: "Owner, Care Placement Agency",
     quote: "I'm not much of an accountant, but GPC helped me with all of my accounting needs, especially during the stressful month of April. They made the whole process simple, stress-free, and easy to understand. Highly recommend them to anyone looking for a reliable and accounting professional.",
     rating: 5,
     initials: "DC",
-    avatarColor: "bg-violet-600",
+    avatarColor: "bg-teal-700",
   },
   {
     name: "Andy",
-    title: "Local Guide",
+    title: "Owner, Hill Top Construction",
     quote: "Gabe has been wonderfully patient in explaining and walking me through all the options. He is the expert in Quickbooks and if you want to externalize bookkeeping, he is your guy. 10/10 would recommend!",
     rating: 5,
     initials: "A",
@@ -93,10 +96,11 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "Tobias Termure",
+    title: "Owner, AZ George Remodeling",
     quote: "I've used GPC bookkeeping to help me resolve some issues my last bookkeeper over looked. Would highly recommend giving him a try. Helped me get my books back in order.",
     rating: 5,
     initials: "TT",
-    avatarColor: "bg-indigo-700",
+    avatarColor: "bg-slate-600",
   },
   {
     name: "James Fazecas",
@@ -107,6 +111,7 @@ const testimonials: Testimonial[] = [
   },
   {
     name: "Michael Jakab",
+    title: "Owner, One Stop Flooring",
     quote: "Gavril is very detail-oriented and knows QuickBooks extremely well. Everything he touches is clean and accurate! Highly recommend",
     rating: 5,
     initials: "MJ",
