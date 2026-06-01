@@ -191,7 +191,7 @@ const Testimonials: React.FC = () => {
             What Our Clients Say
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            {testimonials.length} five-star reviews from business owners who trust us with their books.
+            Five-star reviews from business owners who trust us with their books.
           </p>
         </div>
 
@@ -234,9 +234,6 @@ const Testimonials: React.FC = () => {
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-          <p className="text-center text-sm text-gray-400 mt-3">
-            {current * DESKTOP_PER_PAGE + 1}–{Math.min((current + 1) * DESKTOP_PER_PAGE, testimonials.length)} of {testimonials.length} reviews
-          </p>
         </div>
 
         {/* Mobile: single-card carousel */}
@@ -272,9 +269,6 @@ const Testimonials: React.FC = () => {
               <ChevronRight className="w-5 h-5" />
             </button>
           </div>
-          <p className="text-center text-sm text-gray-400 mt-3">
-            {mobileCurrent + 1} of {testimonials.length}
-          </p>
         </div>
       </div>
     </section>
