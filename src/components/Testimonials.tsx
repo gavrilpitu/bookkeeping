@@ -136,23 +136,23 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; featured?: boolean }
     <p className={`text-sm leading-relaxed mb-6 flex-1 ${featured ? 'text-blue-50' : 'text-gray-600'}`}>
       "{testimonial.quote}"
     </p>
-    <div className="flex items-center gap-3 mt-auto">
+    <div className="flex items-start gap-3 mt-auto">
       <div
-        className={`w-9 h-9 rounded-full flex items-center justify-center font-semibold text-xs flex-shrink-0 text-white ${testimonial.avatarColor}`}
+        className={`w-9 h-9 rounded-full flex items-center justify-center font-semibold text-xs flex-shrink-0 text-white mt-0.5 ${testimonial.avatarColor}`}
       >
         {testimonial.initials}
       </div>
-      <div className="min-w-0">
-        <p className={`font-semibold text-sm truncate ${featured ? 'text-white' : 'text-gray-900'}`}>
+      <div className="flex-1 min-w-0">
+        <p className={`font-semibold text-sm ${featured ? 'text-white' : 'text-gray-900'}`}>
           {testimonial.name}
         </p>
         {testimonial.title && (
-          <p className={`text-xs mt-0.5 truncate ${featured ? 'text-blue-200' : 'text-gray-500'}`}>
+          <p className={`text-xs mt-0.5 leading-snug ${featured ? 'text-blue-200' : 'text-gray-500'}`}>
             {testimonial.title}
           </p>
         )}
       </div>
-      <div className="ml-auto flex gap-0.5 flex-shrink-0">
+      <div className="flex gap-0.5 flex-shrink-0 mt-1">
         {Array.from({ length: testimonial.rating }).map((_, i) => (
           <Star
             key={i}
