@@ -202,7 +202,7 @@ const Testimonials: React.FC = () => {
               <TestimonialCard
                 key={current * DESKTOP_PER_PAGE + i}
                 testimonial={t}
-                featured={i === 1 && current === 1}
+                featured={false}
               />
             ))}
           </div>
