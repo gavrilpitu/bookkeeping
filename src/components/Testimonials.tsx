@@ -159,11 +159,23 @@ const TestimonialCard: React.FC<{ testimonial: Testimonial; featured?: boolean }
   </div>
 );
 
+const DESKTOP_PER_PAGE = 3;
+
 const Testimonials: React.FC = () => {
   const [current, setCurrent] = useState(0);
 
-  const prev = () => setCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
-  const next = () => setCurrent((c) => (c + 1) % testimonials.length);
+  const desktopPages = Math.ceil(testimonials.length / DESKTOP_PER_PAGE);
+  const desktopSlice = testimonials.slice(
+    current * DESKTOP_PER_PAGE,
+    current * DESKTOP_PER_PAGE + DESKTOP_PER_PAGE,
+  );
+
+  const prevDesktop = () => setCurrent((c) => (c - 1 + desktopPages) % desktopPages);
+  const nextDesktop = () => setCurrent((c) => (c + 1) % desktopPages);
+
+  const [mobileCurrent, setMobileCurrent] = useState(0);
+  const prevMobile = () => setMobileCurrent((c) => (c - 1 + testimonials.length) % testimonials.length);
+  const nextMobile = () => setMobileCurrent((c) => (c + 1) % testimonials.length);
 
   return (
     <section id="testimonials" className="py-16 lg:py-20 bg-gray-50">
@@ -183,21 +195,58 @@ const Testimonials: React.FC = () => {
           </p>
         </div>
 
-        {/* Desktop: masonry-style grid */}
-        <div className="hidden md:grid grid-cols-3 gap-5">
-          {testimonials.map((t, i) => (
-            <TestimonialCard key={i} testimonial={t} featured={i === 4} />
-          ))}
-        </div>
-
-        {/* Mobile: carousel */}
-        <div className="md:hidden">
-          <div className="mb-5">
-            <TestimonialCard testimonial={testimonials[current]} featured={current === 4} />
+        {/* Desktop: 3-per-page carousel */}
+        <div className="hidden md:block">
+          <div className="grid grid-cols-3 gap-5 mb-8">
+            {desktopSlice.map((t, i) => (
+              <TestimonialCard
+                key={current * DESKTOP_PER_PAGE + i}
+                testimonial={t}
+                featured={i === 1 && current === 1}
+              />
+            ))}
           </div>
           <div className="flex items-center justify-center gap-4">
             <button
-              onClick={prev}
+              onClick={prevDesktop}
+              aria-label="Previous"
+              className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+            <div className="flex gap-2">
+              {Array.from({ length: desktopPages }).map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setCurrent(i)}
+                  aria-label={`Page ${i + 1}`}
+                  className={`h-2 rounded-full transition-all duration-200 ${
+                    i === current ? 'bg-blue-700 w-6' : 'w-2 bg-gray-300 hover:bg-gray-400'
+                  }`}
+                />
+              ))}
+            </div>
+            <button
+              onClick={nextDesktop}
+              aria-label="Next"
+              className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+          <p className="text-center text-sm text-gray-400 mt-3">
+            {current * DESKTOP_PER_PAGE + 1}–{Math.min((current + 1) * DESKTOP_PER_PAGE, testimonials.length)} of {testimonials.length} reviews
+          </p>
+        </div>
+
+        {/* Mobile: single-card carousel */}
+        <div className="md:hidden">
+          <div className="mb-5">
+            <TestimonialCard testimonial={testimonials[mobileCurrent]} />
+          </div>
+          <div className="flex items-center justify-center gap-4">
+            <button
+              onClick={prevMobile}
               aria-label="Previous testimonial"
               className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
             >
@@ -207,16 +256,16 @@ const Testimonials: React.FC = () => {
               {testimonials.map((_, i) => (
                 <button
                   key={i}
-                  onClick={() => setCurrent(i)}
+                  onClick={() => setMobileCurrent(i)}
                   aria-label={`Go to testimonial ${i + 1}`}
                   className={`h-1.5 rounded-full transition-all duration-200 ${
-                    i === current ? 'bg-blue-700 w-4' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
+                    i === mobileCurrent ? 'bg-blue-700 w-4' : 'w-1.5 bg-gray-300 hover:bg-gray-400'
                   }`}
                 />
               ))}
             </div>
             <button
-              onClick={next}
+              onClick={nextMobile}
               aria-label="Next testimonial"
               className="w-10 h-10 rounded-full border border-gray-300 flex items-center justify-center text-gray-500 hover:border-blue-600 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200"
             >
@@ -224,7 +273,7 @@ const Testimonials: React.FC = () => {
             </button>
           </div>
           <p className="text-center text-sm text-gray-400 mt-3">
-            {current + 1} of {testimonials.length}
+            {mobileCurrent + 1} of {testimonials.length}
           </p>
         </div>
       </div>
