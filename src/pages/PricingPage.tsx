@@ -189,15 +189,28 @@ const CostComparison: React.FC = () => {
   );
 };
 
+const annualPrices: Record<TierKey, string> = {
+  essential: '$447',
+  growth: '$1,097',
+  scale: '$2,397',
+};
+
+const monthlyPrices: Record<TierKey, string> = {
+  essential: '$497',
+  growth: '$1,297',
+  scale: '$2,697',
+};
+
 const PricingPage: React.FC = () => {
   const [selectedTier, setSelectedTier] = useState<TierKey>('growth');
+  const [isAnnual, setIsAnnual] = useState(false);
 
   const tiers: PricingTier[] = [
     {
       key: 'essential',
       name: 'Essential',
       description: 'Clean books delivered by the 5th every month. Stop guessing where your money went.',
-      price: '$497',
+      price: isAnnual ? annualPrices.essential : monthlyPrices.essential,
       period: '/mo',
       features: [
         'Monthly bookkeeping and reconciliation',
@@ -213,7 +226,7 @@ const PricingPage: React.FC = () => {
       key: 'growth',
       name: 'Growth',
       description: 'Never be surprised by your numbers again. Clarity, strategy, and zero tax-time panic.',
-      price: '$1,297',
+      price: isAnnual ? annualPrices.growth : monthlyPrices.growth,
       period: '/mo',
       features: [
         'Everything in Essential',
@@ -230,7 +243,7 @@ const PricingPage: React.FC = () => {
       key: 'scale',
       name: 'Scale',
       description: 'A dedicated CFO-level partner for a fraction of the hire. Forecasting, strategy, and full financial command.',
-      price: '$2,697',
+      price: isAnnual ? annualPrices.scale : monthlyPrices.scale,
       period: '/mo',
       features: [
         'Everything in Growth',
@@ -401,6 +414,30 @@ const PricingPage: React.FC = () => {
             </div>
           </div>
 
+          {/* Billing toggle */}
+          <div className="flex justify-center items-center gap-4 mb-8">
+            <span className={`text-sm font-semibold ${!isAnnual ? 'text-gray-900' : 'text-gray-400'}`}>Monthly</span>
+            <button
+              onClick={() => setIsAnnual((v) => !v)}
+              className={`relative w-14 h-7 rounded-full transition-colors duration-300 focus:outline-none ${
+                isAnnual ? 'bg-blue-700' : 'bg-gray-300'
+              }`}
+              aria-label="Toggle annual billing"
+            >
+              <span
+                className={`absolute top-1 left-1 w-5 h-5 bg-white rounded-full shadow transition-transform duration-300 ${
+                  isAnnual ? 'translate-x-7' : 'translate-x-0'
+                }`}
+              />
+            </button>
+            <span className={`text-sm font-semibold ${isAnnual ? 'text-gray-900' : 'text-gray-400'}`}>
+              Annual
+              <span className="ml-2 inline-block bg-teal-100 text-teal-700 text-xs font-bold px-2 py-0.5 rounded-full">
+                Save up to 11%
+              </span>
+            </span>
+          </div>
+
           {/* Pricing cards */}
           <div className="grid lg:grid-cols-3 gap-6 items-start">
             {tiers.map((tier) => {
@@ -436,13 +473,18 @@ const PricingPage: React.FC = () => {
 
                   <div className="mb-5">
                     <div className="flex items-baseline gap-1">
-                      <span className={`text-4xl font-bold ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
+                      <span className={`text-4xl font-bold transition-all duration-300 ${tier.highlighted ? 'text-white' : 'text-gray-900'}`}>
                         {tier.price}
                       </span>
                       <span className={tier.highlighted ? 'text-blue-200' : 'text-gray-500'}>
                         {tier.period}
                       </span>
                     </div>
+                    {isAnnual && (
+                      <p className={`text-xs mt-1 ${tier.highlighted ? 'text-blue-200' : 'text-gray-500'}`}>
+                        billed annually
+                      </p>
+                    )}
                   </div>
 
                   <ul className="space-y-3 mb-6">
