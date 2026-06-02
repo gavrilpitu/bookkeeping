@@ -43,7 +43,7 @@ const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice:
       { deliverable: 'Quarterly performance summary', value: '$150/mo', bonus: true },
     ],
     total: '~$2,300+/mo',
-    yourPrice: '$1,097/mo',
+    yourPrice: '$1,297/mo',
   },
   scale: {
     rows: [
@@ -54,7 +54,7 @@ const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice:
       { deliverable: 'Dedicated account manager', value: '$400/mo', bonus: true },
     ],
     total: '~$4,200+/mo',
-    yourPrice: '$1,997/mo',
+    yourPrice: '$2,697/mo',
   },
 };
 
