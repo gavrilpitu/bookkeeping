@@ -226,7 +226,6 @@ const PricingPage: React.FC = () => {
         'QuickBooks setup and optimization',
         'Unlimited email support',
         'CPA-ready books',
-        'Up to 150 transactions',
       ],
       bestFor: 'Freelancers, solopreneurs & small businesses getting their books in order.',
       planLimits: [
@@ -250,7 +249,6 @@ const PricingPage: React.FC = () => {
         'Light AR and AP tracking',
         'Light bill pay',
         'Quarterly performance summary',
-        'Up to 500 transactions',
       ],
       bestFor: 'Growing businesses that want clarity, strategy & zero tax-time surprises.',
       planLimits: [
@@ -276,7 +274,6 @@ const PricingPage: React.FC = () => {
         'Accrual, payroll, and loan tracking',
         'Monthly Loom walk-through',
         'Dedicated account manager',
-        'Unlimited transactions',
       ],
       bestFor: 'Established businesses that need a dedicated CFO-level partner.',
       planLimits: [
