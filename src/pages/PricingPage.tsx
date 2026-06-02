@@ -12,6 +12,8 @@ interface PricingTier {
   price: string;
   period: string;
   features: string[];
+  bestFor: string;
+  planLimits: string[];
   highlighted?: boolean;
   cta: string;
 }
@@ -226,6 +228,13 @@ const PricingPage: React.FC = () => {
         'CPA-ready books',
         'Up to 150 transactions',
       ],
+      bestFor: 'Freelancers, solopreneurs & small businesses getting their books in order.',
+      planLimits: [
+        'Up to 150 transactions/month',
+        'Up to 3 bank or credit card accounts',
+        '1 business entity included',
+        'Email support',
+      ],
       cta: 'Get Started',
     },
     {
@@ -241,6 +250,13 @@ const PricingPage: React.FC = () => {
         'Light AR and AP tracking',
         'Quarterly performance summary',
         'Up to 400 transactions',
+      ],
+      bestFor: 'Growing businesses that want clarity, strategy & zero tax-time surprises.',
+      planLimits: [
+        'Up to 400 transactions/month',
+        'Up to 6 bank or credit card accounts',
+        '1 business entity included',
+        'Priority email support',
       ],
       highlighted: true,
       cta: 'Most Popular',
@@ -258,6 +274,13 @@ const PricingPage: React.FC = () => {
         'Monthly Loom walk-through',
         'Dedicated account manager',
         'Unlimited transactions',
+      ],
+      bestFor: 'Established businesses that need a dedicated CFO-level partner.',
+      planLimits: [
+        'Unlimited transactions',
+        'Unlimited bank or credit card accounts',
+        'Multi-entity support included',
+        'Priority support + dedicated account manager',
       ],
       cta: 'Get Started',
     },
@@ -520,6 +543,37 @@ const PricingPage: React.FC = () => {
                       );
                     })}
                   </ul>
+
+                  {/* Best For */}
+                  <div className={`mb-4 px-3 py-3 rounded-lg ${
+                    tier.highlighted ? 'bg-white/10' : 'bg-gray-50 border border-gray-200'
+                  }`}>
+                    <p className={`text-xs font-semibold uppercase tracking-widest mb-1 ${
+                      tier.highlighted ? 'text-blue-200' : 'text-gray-400'
+                    }`}>Best For</p>
+                    <p className={`text-sm leading-snug ${
+                      tier.highlighted ? 'text-white' : 'text-gray-700'
+                    }`}>{tier.bestFor}</p>
+                  </div>
+
+                  {/* Plan Limits */}
+                  <div className="mb-5">
+                    <p className={`text-xs font-semibold uppercase tracking-widest mb-2 ${
+                      tier.highlighted ? 'text-blue-200' : 'text-gray-400'
+                    }`}>Plan Limits</p>
+                    <ul className="space-y-1.5">
+                      {tier.planLimits.map((limit, i) => (
+                        <li key={i} className="flex items-start gap-2">
+                          <span className={`mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0 ${
+                            tier.highlighted ? 'bg-blue-300' : 'bg-gray-400'
+                          }`} />
+                          <span className={`text-sm ${
+                            tier.highlighted ? 'text-blue-100' : 'text-gray-500'
+                          }`}>{limit}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
 
                   <div className={`flex items-center gap-2 mb-4 px-3 py-2 rounded-lg ${
                     tier.highlighted ? 'bg-green-500/20' : 'bg-green-50 border border-green-200'
