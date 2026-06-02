@@ -221,7 +221,8 @@ const PricingPage: React.FC = () => {
       price: isAnnual ? annualPrices.essential : monthlyPrices.essential,
       period: '/mo',
       features: [
-        'Monthly bookkeeping and reconciliation',
+        'Monthly bookkeeping and categorization',
+        'Monthly bank and credit card reconciliation',
         'P&L and balance sheet by the 7th',
         'QuickBooks setup and optimization',
         'Unlimited email support',
