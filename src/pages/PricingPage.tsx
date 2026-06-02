@@ -28,7 +28,7 @@ const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice:
   essential: {
     rows: [
       { deliverable: 'Monthly bookkeeping & bank reconciliation', value: '$400/mo' },
-      { deliverable: 'P&L + balance sheet by the 5th', value: '$150/mo' },
+      { deliverable: 'P&L + balance sheet by the 7th', value: '$150/mo' },
       { deliverable: 'QuickBooks setup & optimization', value: '$600 one-time' },
       { deliverable: 'Unlimited email support', value: '$100/mo', bonus: true },
       { deliverable: 'CPA-ready year-end handoff package', value: '$400/yr', bonus: true },
@@ -217,12 +217,12 @@ const PricingPage: React.FC = () => {
     {
       key: 'essential',
       name: 'Essential',
-      description: 'Clean books delivered by the 5th every month. Stop guessing where your money went.',
+      description: 'Clean books delivered by the 7th every month. Stop guessing where your money went.',
       price: isAnnual ? annualPrices.essential : monthlyPrices.essential,
       period: '/mo',
       features: [
         'Monthly bookkeeping and reconciliation',
-        'P&L and balance sheet by the 5th',
+        'P&L and balance sheet by the 7th',
         'QuickBooks setup and optimization',
         'Unlimited email support',
         'CPA-ready books',
@@ -338,7 +338,7 @@ const PricingPage: React.FC = () => {
               One Simple Investment. Guaranteed Results.
             </h1>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Every plan includes our Accurate Books by the 5th guarantee. No long-term contracts. Cancel anytime.
+              Every plan includes our Accurate Books by the 7th guarantee. No long-term contracts. Cancel anytime.
             </p>
           </div>
 
@@ -397,7 +397,7 @@ const PricingPage: React.FC = () => {
               </table>
             </div>
             <p className="text-center text-sm italic text-gray-500 mt-4">
-              All plans include our Accurate Books by the 5th guarantee.
+              All plans include our Accurate Books by the 7th guarantee.
             </p>
           </div>
 
@@ -580,7 +580,7 @@ const PricingPage: React.FC = () => {
                   }`}>
                     <ShieldCheck className={`w-4 h-4 flex-shrink-0 ${tier.highlighted ? 'text-green-300' : 'text-green-600'}`} />
                     <span className={`text-xs font-semibold ${tier.highlighted ? 'text-green-200' : 'text-green-700'}`}>
-                      Accurate Books by the 5th or it's free
+                      Accurate Books by the 7th or it's free
                     </span>
                   </div>
 

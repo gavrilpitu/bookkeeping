@@ -11,10 +11,10 @@ const GuaranteeBanner: React.FC = () => {
           </div>
           <div>
             <h2 className="text-2xl sm:text-3xl font-bold text-white leading-tight mb-3">
-              Accurate Books by the 5th — Or That Month Is Free
+              Accurate Books by the 7th — Or That Month Is Free
             </h2>
             <p className="text-blue-100 text-base sm:text-lg leading-relaxed max-w-2xl">
-              If your books aren't delivered by the 5th of the month, or if we make an error we can't correct within 72 hours, that month is completely free. No questions asked. We stake our revenue on your accuracy every single month.
+              If your books aren't delivered by the 7th of the month, or if we make an error we can't correct within 72 hours, that month is completely free. No questions asked. We stake our revenue on your accuracy every single month.
             </p>
           </div>
         </div>
