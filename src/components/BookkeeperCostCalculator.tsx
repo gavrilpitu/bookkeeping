@@ -26,7 +26,7 @@ const BookkeeperCostCalculator: React.FC = () => {
       <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section label */}
-        <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-3">
+        <p className="text-2xl font-bold text-red-600 mb-3">
           Small business owners are losing $5,000/mo to in-house bookkeeping
         </p>
 
