@@ -227,6 +227,7 @@ const PricingPage: React.FC = () => {
         'QuickBooks setup and optimization',
         'Unlimited email support',
         'CPA-ready books',
+        'End of year tax ready financials',
       ],
       bestFor: 'Freelancers, solopreneurs & small businesses getting their books in order.',
       planLimits: [
