@@ -1,5 +1,5 @@
 import React from 'react';
-import { Calculator, TrendingUp, Clock, Settings } from 'lucide-react';
+import { Calculator, TrendingUp, Clock, Settings, Building2 } from 'lucide-react';
 
 const Services: React.FC = () => {
   const services = [
@@ -80,7 +80,45 @@ const Services: React.FC = () => {
           })}
         </div>
 
-        <div className="text-center mt-8">
+        <div className="text-center mt-8 mb-12">
+          <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full mb-6">
+            <Building2 className="w-4 h-4" />
+            Industries We Serve
+          </div>
+          <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-5 gap-3 max-w-5xl mx-auto">
+            {[
+              "Construction & Contracting",
+              "Real Estate",
+              "Healthcare & Medical",
+              "Restaurants & Food Service",
+              "Retail & E-Commerce",
+              "Professional Services",
+              "Law Firms",
+              "Dental & Veterinary Practices",
+              "Auto Repair & Dealerships",
+              "Property Management",
+              "Landscaping & Tree Services",
+              "Cleaning Services",
+              "Trucking & Logistics",
+              "Home Services & Plumbing",
+              "Non-Profits",
+              "Salons & Spas",
+              "Gyms & Fitness Studios",
+              "Childcare & Daycares",
+              "Insurance Agencies",
+              "Marketing & Creative Agencies",
+            ].map((industry, i) => (
+              <div
+                key={i}
+                className="bg-gray-50 border border-gray-200 rounded-lg px-3 py-2.5 text-sm text-gray-700 font-medium text-center hover:bg-blue-50 hover:border-blue-200 hover:text-blue-800 transition-colors duration-200"
+              >
+                {industry}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="text-center mt-4">
           <button
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-blue-700 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
