@@ -245,7 +245,7 @@ const PricingPage: React.FC = () => {
       features: [
         'Everything in Essential',
         '90-day hidden deductions audit',
-        '60-min monthly clarity call',
+        'Payroll processing',
         'Light AR and AP tracking',
         'Light bill pay',
         'Quarterly performance summary',
