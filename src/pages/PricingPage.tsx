@@ -99,8 +99,8 @@ const comparisonTiers: ComparisonTier[] = [
       { label: 'Payroll taxes & benefits (est.)', amount: '$1,169/mo' },
     ],
     marketTotal: '$7,654/mo',
-    gpcPrice: '$1,097/mo',
-    savings: '$6,557/mo',
+    gpcPrice: '$1,297/mo',
+    savings: '$6,357/mo',
   },
   {
     key: 'scale',
@@ -113,8 +113,8 @@ const comparisonTiers: ComparisonTier[] = [
       { label: 'Benefits & overhead (est. 30%)', amount: '$800/mo' },
     ],
     marketTotal: '$16,390/mo',
-    gpcPrice: '$1,997/mo',
-    savings: '$14,393/mo',
+    gpcPrice: '$2,697/mo',
+    savings: '$13,693/mo',
   },
 ];
 
@@ -213,7 +213,7 @@ const PricingPage: React.FC = () => {
       key: 'growth',
       name: 'Growth',
       description: 'Never be surprised by your numbers again. Clarity, strategy, and zero tax-time panic.',
-      price: '$1,097',
+      price: '$1,297',
       period: '/mo',
       features: [
         'Everything in Essential',
@@ -230,7 +230,7 @@ const PricingPage: React.FC = () => {
       key: 'scale',
       name: 'Scale',
       description: 'A dedicated CFO-level partner for a fraction of the hire. Forecasting, strategy, and full financial command.',
-      price: '$1,997',
+      price: '$2,697',
       period: '/mo',
       features: [
         'Everything in Growth',
