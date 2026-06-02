@@ -189,6 +189,12 @@ const CostComparison: React.FC = () => {
   );
 };
 
+const annualSavings: Record<TierKey, string> = {
+  essential: '$600',
+  growth: '$2,400',
+  scale: '$3,600',
+};
+
 const annualPrices: Record<TierKey, string> = {
   essential: '$447',
   growth: '$1,097',
@@ -481,9 +487,16 @@ const PricingPage: React.FC = () => {
                       </span>
                     </div>
                     {isAnnual && (
-                      <p className={`text-xs mt-1 ${tier.highlighted ? 'text-blue-200' : 'text-gray-500'}`}>
-                        billed annually
-                      </p>
+                      <div className="flex items-center gap-2 mt-1.5">
+                        <span className={`text-xs ${tier.highlighted ? 'text-blue-200' : 'text-gray-500'}`}>
+                          billed annually
+                        </span>
+                        <span className={`text-xs font-bold px-2 py-0.5 rounded-full ${
+                          tier.highlighted ? 'bg-green-500/30 text-green-200' : 'bg-green-100 text-green-700'
+                        }`}>
+                          Save {annualSavings[tier.key]}/yr
+                        </span>
+                      </div>
                     )}
                   </div>
 
