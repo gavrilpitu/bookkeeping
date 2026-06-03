@@ -603,11 +603,11 @@ const PricingPage: React.FC = () => {
 
           <div className="mt-8 text-center">
             <p className="text-gray-600 mb-3">All plans include:</p>
-            <div className="flex flex-wrap justify-center gap-6 text-sm text-gray-700">
+            <div className="flex flex-wrap justify-center gap-4 text-sm">
               {['No setup fees', 'Cancel anytime', 'Secure data handling', '100% satisfaction guarantee'].map((item, i) => (
-                <span key={i} className="flex items-center gap-2">
-                  <Check className="w-4 h-4 text-teal-600" />
-                  {item}
+                <span key={i} className="flex items-center gap-2 bg-green-50 border border-green-200 px-3 py-2 rounded-lg">
+                  <ShieldCheck className="w-4 h-4 flex-shrink-0 text-green-600" />
+                  <span className="font-semibold text-green-700">{item}</span>
                 </span>
               ))}
             </div>
