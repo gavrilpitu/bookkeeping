@@ -12,5 +12,24 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      // Restore path encoded by 404.html before React Router initializes.
+      (function() {
+        var q = window.location.search;
+        if (q && q.indexOf('p=') !== -1) {
+          var params = q.slice(1).split('&').reduce(function(acc, s) {
+            var kv = s.split('=');
+            acc[decodeURIComponent(kv[0])] = decodeURIComponent(kv.slice(1).join('='));
+            return acc;
+          }, {});
+          if (params.p) {
+            window.history.replaceState(
+              null, null,
+              params.p + (params.h || '')
+            );
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
