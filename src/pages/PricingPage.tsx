@@ -282,8 +282,9 @@ const PricingPage: React.FC = () => {
       ],
       bestFor: 'Established businesses that need a dedicated CFO-level partner.',
       planLimits: [
-        'Unlimited transactions',
-        'Unlimited bank or credit card accounts',
+        'Up to 1,000 transactions/month',
+        'Up to 12 bank or credit card accounts',
+        'Payroll up to 30 employees',
         'Multi-entity support included',
         'Priority support + dedicated account manager',
       ],
