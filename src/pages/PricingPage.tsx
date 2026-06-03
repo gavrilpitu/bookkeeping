@@ -276,6 +276,9 @@ const PricingPage: React.FC = () => {
         'Accrual, payroll, and loan tracking',
         'Monthly Loom walk-through',
         'Dedicated account manager',
+        'Cash-flow forecasting & scenario modeling',
+        'Annual budget creation with monthly tracking',
+        'Proactive cash gap & spending alerts',
       ],
       bestFor: 'Established businesses that need a dedicated CFO-level partner.',
       planLimits: [
