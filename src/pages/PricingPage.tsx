@@ -473,7 +473,7 @@ const PricingPage: React.FC = () => {
           </div>
 
           {/* Pricing cards */}
-          <div className="grid lg:grid-cols-3 gap-6 items-start mt-6">
+          <div className="grid lg:grid-cols-3 gap-6 items-start mt-12">
             {tiers.map((tier) => {
               const isSelected = selectedTier === tier.key;
               return (
