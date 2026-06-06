@@ -6,7 +6,7 @@ const Hero: React.FC = () => {
   return (
     <section id="home" className="pt-16 bg-gradient-to-br from-blue-50 via-white to-teal-50 flex items-center min-h-screen">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10 lg:py-12">
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div className="space-y-6">
             <div className="space-y-3">
               <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
