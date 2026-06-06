@@ -57,7 +57,7 @@ const Hero: React.FC = () => {
             </div>
             <div className="flex flex-wrap items-center gap-4">
               <a
-                href="tel:2485952511"
+                href="tel:6028882841"
                 className="inline-flex items-center gap-2.5 w-fit bg-white border border-gray-200 rounded-full px-5 py-2.5 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group"
               >
                 <span className="flex items-center justify-center w-8 h-8 bg-blue-700 rounded-full group-hover:bg-blue-800 transition-colors">
@@ -65,7 +65,7 @@ const Hero: React.FC = () => {
                 </span>
                 <div className="flex flex-col">
                   <span className="text-xs text-gray-400 leading-none">Call us today</span>
-                  <span className="text-gray-800 font-semibold text-sm leading-snug">(248) 595-2511</span>
+                  <span className="text-gray-800 font-semibold text-sm leading-snug">(602) 888-2841</span>
                 </div>
               </a>
             </div>

@@ -48,7 +48,7 @@ const Contact: React.FC = () => {
         setFormData({ name: '', email: '', phone: '', business: '', service: '', message: '' });
       }, 6000);
     } catch {
-      setError('Something went wrong. Please try again or call us at (248) 595-2511.');
+      setError('Something went wrong. Please try again or call us at (602) 888-2841.');
     } finally {
       setIsSubmitting(false);
     }
@@ -64,7 +64,7 @@ const Contact: React.FC = () => {
             <p className="text-xl text-gray-600 mb-6">
               We've received your inquiry and will get back to you within 24 hours.
             </p>
-            <p className="text-gray-500">In the meantime, feel free to call us at (248) 595-2511</p>
+            <p className="text-gray-500">In the meantime, feel free to call us at (602) 888-2841</p>
           </div>
         </div>
       </section>
@@ -228,7 +228,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-gray-900">Phone</h4>
-                    <p className="text-gray-600">(248) 595-2511</p>
+                    <p className="text-gray-600">(602) 888-2841</p>
                     <p className="text-sm text-gray-500">Mon-Fri 9AM-5PM MST</p>
                   </div>
                 </div>
