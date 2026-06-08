@@ -29,7 +29,7 @@ const ServiceAreas: React.FC = () => {
               </p>
               <div className="flex flex-wrap gap-3">
 <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">Local Business Knowledge</span>
-                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">100% Virtual Service</span>
+                <span className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-sm">100% Remote Service</span>
               </div>
             </div>
             <div className="text-center">
