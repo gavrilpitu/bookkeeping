@@ -14,7 +14,8 @@ Deno.serve(async (req: Request) => {
   try {
     const { name, email, phone, business, service, message } = await req.json();
 
-    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY") ?? "re_NJ8ywZEB_9ECQycQbRygHSiPLix2p4ELn";
+    const RESEND_API_KEY = Deno.env.get("RESEND_API_KEY");
+    if (!RESEND_API_KEY) throw new Error("RESEND_API_KEY environment variable is not set");
 
     const serviceLabel: Record<string, string> = {
       bookkeeping: "Monthly Bookkeeping",
