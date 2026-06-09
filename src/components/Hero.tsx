@@ -19,7 +19,8 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
-            <div className="grid sm:grid-cols-2 gap-3">
+            {/* Checkmarks — visible on mobile, hidden on desktop (moved to right column) */}
+            <div className="grid sm:grid-cols-2 gap-3 lg:hidden">
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
                 <span className="text-gray-700">Serving Locally in Arizona</span>
@@ -55,10 +56,14 @@ const Hero: React.FC = () => {
                 View Services
               </button>
             </div>
-            <p className="text-sm text-blue-700 font-medium italic leading-snug max-w-md">
+
+            {/* Supporting line — visible on mobile, hidden on desktop (moved to right column) */}
+            <p className="text-sm text-blue-700 font-medium italic leading-snug max-w-md lg:hidden">
               The next 5 new clients to start a monthly plan get their full QuickBooks cleanup &amp; catch-up done free — a tax-ready fresh start at no extra cost.
             </p>
-            <div className="flex flex-wrap items-center gap-4">
+
+            {/* Phone block — visible on mobile, hidden on desktop (moved to right column) */}
+            <div className="flex flex-wrap items-center gap-4 lg:hidden">
               <a
                 href="tel:6028882841"
                 className="inline-flex items-center gap-2.5 w-fit bg-white border border-gray-200 rounded-full px-5 py-2.5 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group"
@@ -102,6 +107,47 @@ const Hero: React.FC = () => {
                   <p className="text-xs text-gray-500 mt-0.5">Remote-Friendly</p>
                 </div>
               </div>
+            </div>
+
+            {/* Checkmarks */}
+            <div className="grid sm:grid-cols-2 gap-3">
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                <span className="text-gray-700">Serving Locally in Arizona</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                <span className="text-gray-700">QuickBooks Certified</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                <span className="text-gray-700">Monthly Reports</span>
+              </div>
+              <div className="flex items-center space-x-3">
+                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
+                <span className="text-gray-700">Tax-Ready Books</span>
+              </div>
+            </div>
+
+            {/* Supporting line */}
+            <p className="text-sm text-blue-700 font-medium italic leading-snug max-w-md">
+              The next 5 new clients to start a monthly plan get their full QuickBooks cleanup &amp; catch-up done free — a tax-ready fresh start at no extra cost.
+            </p>
+
+            {/* Phone block */}
+            <div className="flex flex-wrap items-center gap-4">
+              <a
+                href="tel:6028882841"
+                className="inline-flex items-center gap-2.5 w-fit bg-white border border-gray-200 rounded-full px-5 py-2.5 shadow-sm hover:shadow-md hover:border-blue-300 transition-all duration-300 group"
+              >
+                <span className="flex items-center justify-center w-8 h-8 bg-blue-700 rounded-full group-hover:bg-blue-800 transition-colors">
+                  <Phone className="h-4 w-4 text-white" />
+                </span>
+                <div className="flex flex-col">
+                  <span className="text-xs text-gray-400 leading-none">Call us today</span>
+                  <span className="text-gray-800 font-semibold text-sm leading-snug">(602) 888-2841</span>
+                </div>
+              </a>
             </div>
           </div>
         </div>
