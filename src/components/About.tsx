@@ -110,7 +110,7 @@ const About: React.FC = () => {
                   onClick={scrollToContact}
                   className="inline-flex items-center gap-2 bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold hover:bg-blue-800 transition-all duration-300 shadow-lg hover:shadow-xl"
                 >
-                  Let's Work Together
+                  Get My Free QuickBooks Cleanup
                   <ArrowRight className="w-5 h-5" />
                 </button>
                 <Link

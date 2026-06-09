@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowRight, CheckCircle, Phone, Star } from 'lucide-react';
+import { ArrowRight, CheckCircle, Phone } from 'lucide-react';
 
 const Hero: React.FC = () => {
 
@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
                 rel="noopener noreferrer"
                 className="bg-blue-700 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-all duration-300 font-semibold text-lg flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
               >
-                <span>Book My Free Financial Health Check</span>
+                <span>Get My Free QuickBooks Cleanup</span>
                 <ArrowRight className="h-5 w-5" />
               </a>
               <button
@@ -55,6 +55,9 @@ const Hero: React.FC = () => {
                 View Services
               </button>
             </div>
+            <p className="text-sm text-blue-700 font-medium italic leading-snug max-w-md">
+              The next 5 new clients to start a monthly plan get their full QuickBooks cleanup &amp; catch-up done free — a tax-ready fresh start at no extra cost.
+            </p>
             <div className="flex flex-wrap items-center gap-4">
               <a
                 href="tel:6028882841"
@@ -98,22 +101,6 @@ const Hero: React.FC = () => {
                   <p className="font-bold text-gray-900 text-sm leading-snug">Proudly Serving Arizona</p>
                   <p className="text-xs text-gray-500 mt-0.5">Remote-Friendly</p>
                 </div>
-              </div>
-            </div>
-
-            {/* Testimonial card */}
-            <div className="bg-white rounded-2xl shadow-lg border border-gray-200 p-6">
-              <div className="flex gap-0.5 mb-3">
-                {[...Array(5)].map((_, i) => (
-                  <Star key={i} className="h-4 w-4 fill-amber-400 text-amber-400" />
-                ))}
-              </div>
-              <p className="text-gray-700 text-sm leading-relaxed mb-4">
-                "Gavril is very sharp with numbers and genuinely cares about doing things correctly. I'd highly recommend him."
-              </p>
-              <div>
-                <p className="font-semibold text-gray-900 text-sm">Benjamin Illioi</p>
-                <p className="text-xs text-gray-500">Owner, Absolute Iron Doors</p>
               </div>
             </div>
           </div>

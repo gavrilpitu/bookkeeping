@@ -123,7 +123,7 @@ const Services: React.FC = () => {
             onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
             className="bg-blue-700 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-colors font-semibold text-lg shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
           >
-            Discuss Your Needs
+            Get My Free QuickBooks Cleanup
           </button>
         </div>
       </div>

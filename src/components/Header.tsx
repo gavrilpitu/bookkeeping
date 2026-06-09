@@ -99,7 +99,7 @@ const Header: React.FC = () => {
               rel="noopener noreferrer"
               className="bg-blue-700 text-white px-6 py-2 rounded-lg hover:bg-blue-800 transition-colors font-medium"
             >
-              Get Started — 5 Spots Left
+              Get My Free QuickBooks Cleanup
             </a>
           </nav>
 
@@ -156,7 +156,7 @@ const Header: React.FC = () => {
                 rel="noopener noreferrer"
                 className="bg-blue-700 text-white block px-3 py-2 text-base font-medium w-full text-left rounded-lg hover:bg-blue-800"
               >
-                Get Started — 5 Spots Left
+                Get My Free QuickBooks Cleanup
               </a>
             </div>
           </div>

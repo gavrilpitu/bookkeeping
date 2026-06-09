@@ -210,7 +210,7 @@ const Contact: React.FC = () => {
                       : 'bg-blue-700 text-white hover:bg-blue-800 hover:shadow-xl transform hover:-translate-y-1'
                   }`}
                 >
-                  <span>{isSubmitting ? 'Sending...' : 'Claim My Free Strategy Call'}</span>
+                  <span>{isSubmitting ? 'Sending...' : 'Get My Free QuickBooks Cleanup'}</span>
                   {!isSubmitting && <Send className="h-5 w-5" />}
                 </button>
               </form>
