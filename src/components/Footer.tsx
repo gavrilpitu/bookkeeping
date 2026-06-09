@@ -50,7 +50,6 @@ const Footer: React.FC = () => {
             <h3 className="text-lg font-semibold mb-4">Services</h3>
             <ul className="space-y-2 text-gray-400">
               <li className="hover:text-white transition-colors cursor-pointer">Monthly Bookkeeping</li>
-              <li className="hover:text-white transition-colors cursor-pointer">Tax Preparation</li>
               <li className="hover:text-white transition-colors cursor-pointer">Financial Reporting</li>
               <li className="hover:text-white transition-colors cursor-pointer">Payroll Management</li>
               <li className="hover:text-white transition-colors cursor-pointer">QuickBooks Setup</li>
