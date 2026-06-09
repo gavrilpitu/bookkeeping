@@ -18,47 +18,6 @@ interface PricingTier {
   cta: string;
 }
 
-interface ValueRow {
-  deliverable: string;
-  value: string;
-  bonus?: boolean;
-}
-
-const valueStacks: Record<TierKey, { rows: ValueRow[]; total: string; yourPrice: string }> = {
-  essential: {
-    rows: [
-      { deliverable: 'Monthly bookkeeping & bank reconciliation', value: '$400/mo' },
-      { deliverable: 'P&L + balance sheet by the 7th', value: '$150/mo' },
-      { deliverable: 'QuickBooks setup & optimization', value: '$600 one-time' },
-      { deliverable: 'Unlimited email support', value: '$100/mo', bonus: true },
-      { deliverable: 'CPA-ready year-end handoff package', value: '$400/yr', bonus: true },
-    ],
-    total: '~$1,250+/mo',
-    yourPrice: '$497/mo',
-  },
-  growth: {
-    rows: [
-      { deliverable: 'Everything in Essential', value: '$1,250/mo' },
-      { deliverable: '60-min monthly financial clarity call', value: '$300/mo', bonus: true },
-      { deliverable: '90-day hidden deductions audit', value: '$400 one-time', bonus: true },
-      { deliverable: 'Light AR & AP tracking', value: '$200/mo', bonus: true },
-      { deliverable: 'Quarterly performance summary', value: '$150/mo', bonus: true },
-    ],
-    total: '~$2,300+/mo',
-    yourPrice: '$1,297/mo',
-  },
-  scale: {
-    rows: [
-      { deliverable: 'Everything in Growth', value: '$2,300/mo' },
-      { deliverable: 'Custom KPI dashboards', value: '$300/mo', bonus: true },
-      { deliverable: 'Accrual, payroll & loan tracking', value: '$250/mo', bonus: true },
-      { deliverable: 'Monthly Loom walk-through', value: '$150/mo', bonus: true },
-      { deliverable: 'Dedicated account manager', value: '$400/mo', bonus: true },
-    ],
-    total: '~$4,200+/mo',
-    yourPrice: '$2,697/mo',
-  },
-};
 
 interface CostRow {
   label: string;
@@ -95,14 +54,14 @@ const comparisonTiers: ComparisonTier[] = [
     label: 'Growth',
     vsLabel: 'vs. Bookkeeper + Accountant',
     rows: [
-      { label: 'Part-time bookkeeper (20 hrs/mo)', amount: '$3,600/mo' },
-      { label: 'Part-time accountant (10 hrs/mo)', amount: '$2,800/mo' },
+      { label: 'Part-time bookkeeper (20 hrs/mo)', amount: '$3,200/mo' },
+      { label: 'Fractional accountant (5 hrs/mo)', amount: '$1,600/mo' },
       { label: 'QuickBooks subscription', amount: '$85/mo' },
-      { label: 'Payroll taxes & benefits (est.)', amount: '$1,169/mo' },
+      { label: 'Payroll taxes & benefits (est.)', amount: '$640/mo' },
     ],
-    marketTotal: '$7,654/mo',
+    marketTotal: '$5,525/mo',
     gpcPrice: '$1,297/mo',
-    savings: '$6,357/mo',
+    savings: '$4,228/mo',
   },
   {
     key: 'scale',
@@ -236,7 +195,7 @@ const PricingPage: React.FC = () => {
         '1 business entity included',
         'Email support',
       ],
-      cta: 'Get Started',
+      cta: 'Get My Free QuickBooks Cleanup',
     },
     {
       key: 'growth',
@@ -262,7 +221,7 @@ const PricingPage: React.FC = () => {
         'Priority email support',
       ],
       highlighted: true,
-      cta: 'Most Popular',
+      cta: 'Get My Free QuickBooks Cleanup',
     },
     {
       key: 'scale',
@@ -289,7 +248,7 @@ const PricingPage: React.FC = () => {
         'Multi-entity support included',
         'Priority support + dedicated account manager',
       ],
-      cta: 'Get Started',
+      cta: 'Get My Free QuickBooks Cleanup',
     },
   ];
 
@@ -324,14 +283,6 @@ const PricingPage: React.FC = () => {
     },
   ];
 
-  const stack = valueStacks[selectedTier];
-
-  const tabLabels: { key: TierKey; label: string }[] = [
-    { key: 'essential', label: 'Essential' },
-    { key: 'growth', label: 'Growth' },
-    { key: 'scale', label: 'Scale' },
-  ];
-
   return (
     <div>
       <section className="pt-24 pb-10 bg-gradient-to-b from-blue-50 to-white">
@@ -349,67 +300,8 @@ const PricingPage: React.FC = () => {
             </p>
           </div>
 
-          {/* Value stack */}
-          <div className="mt-12 mb-16 max-w-2xl mx-auto">
-            <h2 className="text-3xl font-bold text-gray-900 text-center mb-6">
-              What You're Actually Getting
-            </h2>
-
-            {/* Tier tabs */}
-            <div className="flex rounded-xl border border-gray-200 bg-gray-50 p-1 mb-4 gap-1">
-              {tabLabels.map(({ key, label }) => (
-                <button
-                  key={key}
-                  onClick={() => setSelectedTier(key)}
-                  className={`flex-1 py-2 px-4 rounded-lg text-sm font-semibold transition-all duration-200 ${
-                    selectedTier === key
-                      ? 'bg-white text-blue-700 shadow-sm border border-gray-200'
-                      : 'text-gray-500 hover:text-gray-700'
-                  }`}
-                >
-                  {label}
-                </button>
-              ))}
-            </div>
-
-            {/* Value table */}
-            <div className="overflow-hidden rounded-2xl border border-gray-200 shadow-sm">
-              <table className="w-full border-collapse">
-                <thead>
-                  <tr className="bg-gray-50 border-b border-gray-200">
-                    <th className="text-left py-3.5 px-6 text-sm font-semibold text-gray-700 uppercase tracking-wide">Deliverable</th>
-                    <th className="text-right py-3.5 px-6 text-sm font-semibold text-gray-700 uppercase tracking-wide">Market Value</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {stack.rows.map((row, i) => (
-                    <tr key={i} className="border-b border-gray-100 hover:bg-gray-50 transition-colors">
-                      <td className={`py-3.5 px-6 text-sm ${row.bonus ? 'text-blue-700' : 'text-gray-700'}`}>
-                        {row.deliverable}
-                      </td>
-                      <td className={`py-3.5 px-6 text-sm text-right font-medium ${row.bonus ? 'text-blue-700' : 'text-gray-700'}`}>
-                        {row.value}
-                      </td>
-                    </tr>
-                  ))}
-                  <tr className="bg-gray-900">
-                    <td className="py-4 px-6 text-sm font-bold text-white">Total value</td>
-                    <td className="py-4 px-6 text-sm font-bold text-white text-right">{stack.total}</td>
-                  </tr>
-                  <tr className="bg-green-50">
-                    <td className="py-4 px-6 text-sm font-bold text-green-700">Your price</td>
-                    <td className="py-4 px-6 text-sm font-bold text-green-700 text-right">{stack.yourPrice}</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <p className="text-center text-sm italic text-gray-500 mt-4">
-              All plans include our Accurate Books by the 7th guarantee.
-            </p>
-          </div>
-
           {/* What Happens When You Sign Up */}
-          <div className="mb-14">
+          <div className="mb-14 mt-12">
             <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
               What Happens When You Sign Up
             </h2>
@@ -446,7 +338,7 @@ const PricingPage: React.FC = () => {
           <div className="flex justify-center mb-10">
             <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-300 text-amber-800 text-sm font-medium px-5 py-2.5 rounded-full shadow-sm">
               <span className="w-2 h-2 rounded-full bg-amber-500 shrink-0 animate-pulse"></span>
-              Only 5 new client spots open per month — sign up this week and get a free 30-minute Financial Health Check ($150 value).
+              Only 5 new client spots open per month — the next 5 new clients to start a monthly plan get their full QuickBooks cleanup &amp; catch-up done free.
             </div>
           </div>
 
@@ -599,7 +491,7 @@ const PricingPage: React.FC = () => {
                         : 'bg-blue-700 text-white hover:bg-blue-800 shadow-md hover:shadow-lg'
                     }`}
                   >
-                    {tier.highlighted ? 'Get Started' : tier.cta}
+                    {tier.cta}
                   </button>
                 </div>
               );
@@ -694,7 +586,7 @@ const PricingPage: React.FC = () => {
             Ready to Get Started?
           </h2>
           <p className="text-blue-100 text-lg mb-6">
-            Join hundreds of small businesses who trust us with their financial records.
+            Join Arizona business owners who trust us with their books.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button
