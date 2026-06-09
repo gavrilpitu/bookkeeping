@@ -19,8 +19,8 @@ const Hero: React.FC = () => {
               </p>
             </div>
 
-            {/* Checkmarks — visible on mobile, hidden on desktop (moved to right column) */}
-            <div className="grid sm:grid-cols-2 gap-3 lg:hidden">
+            {/* Checkmarks — always visible in left column */}
+            <div className="grid sm:grid-cols-2 gap-3">
               <div className="flex items-center space-x-3">
                 <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
                 <span className="text-gray-700">Serving Locally in Arizona</span>
@@ -39,7 +39,8 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            <div className="flex flex-col sm:flex-row gap-4">
+            {/* CTA buttons — mobile only (moved to right column on desktop) */}
+            <div className="flex flex-col sm:flex-row gap-4 lg:hidden">
               <a
                 href="https://calendly.com/gavril-gpcbookkeeping/30min"
                 target="_blank"
@@ -57,12 +58,12 @@ const Hero: React.FC = () => {
               </button>
             </div>
 
-            {/* Supporting line — visible on mobile, hidden on desktop (moved to right column) */}
+            {/* Supporting line — mobile only */}
             <p className="text-sm text-blue-700 font-medium italic leading-snug max-w-md lg:hidden">
               The next 5 new clients to start a monthly plan get their full QuickBooks cleanup &amp; catch-up done free — a tax-ready fresh start at no extra cost.
             </p>
 
-            {/* Phone block — visible on mobile, hidden on desktop (moved to right column) */}
+            {/* Phone block — mobile only */}
             <div className="flex flex-wrap items-center gap-4 lg:hidden">
               <a
                 href="tel:6028882841"
@@ -80,7 +81,7 @@ const Hero: React.FC = () => {
           </div>
 
           <div className="relative hidden lg:flex flex-col gap-6">
-            {/* Badge row */}
+            {/* Badge card */}
             <div className="bg-white rounded-2xl shadow-lg border border-gray-100 p-6">
               <p className="text-xs font-semibold tracking-widest text-gray-400 uppercase mb-4 text-center">Certified & Verified</p>
               <div className="flex items-center justify-center gap-3">
@@ -109,24 +110,23 @@ const Hero: React.FC = () => {
               </div>
             </div>
 
-            {/* Checkmarks */}
-            <div className="grid sm:grid-cols-2 gap-3">
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
-                <span className="text-gray-700">Serving Locally in Arizona</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
-                <span className="text-gray-700">QuickBooks Certified</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
-                <span className="text-gray-700">Monthly Reports</span>
-              </div>
-              <div className="flex items-center space-x-3">
-                <CheckCircle className="h-5 w-5 text-teal-600 flex-shrink-0" />
-                <span className="text-gray-700">Tax-Ready Books</span>
-              </div>
+            {/* CTA buttons */}
+            <div className="flex flex-col sm:flex-row gap-4">
+              <a
+                href="https://calendly.com/gavril-gpcbookkeeping/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-blue-700 text-white px-8 py-4 rounded-lg hover:bg-blue-800 transition-all duration-300 font-semibold text-lg flex items-center justify-center space-x-2 shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+              >
+                <span>Get My Free QuickBooks Cleanup</span>
+                <ArrowRight className="h-5 w-5" />
+              </a>
+              <button
+                onClick={() => document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' })}
+                className="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg hover:border-blue-700 hover:text-blue-700 transition-colors font-semibold text-lg"
+              >
+                View Services
+              </button>
             </div>
 
             {/* Supporting line */}
