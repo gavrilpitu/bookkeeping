@@ -4,6 +4,7 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import PricingPage from './pages/PricingPage';
+import FoundingOfferPage from './pages/FoundingOfferPage';
 
 const ScrollToTop: React.FC = () => {
   const { pathname } = useLocation();
@@ -13,20 +14,40 @@ const ScrollToTop: React.FC = () => {
   return null;
 };
 
+const MainLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <div className="min-h-screen">
+    <Header />
+    {children}
+    <Footer />
+  </div>
+);
+
 function App() {
   return (
     <Router>
       <ScrollToTop />
-      <div className="min-h-screen">
-        <Header />
-        <Routes>
-          <Route path="/" element={<HomePage />} />
-          <Route path="/pricing" element={<PricingPage />} />
-        </Routes>
-        <Footer />
-      </div>
+      <Routes>
+        <Route path="/founding-offer" element={<FoundingOfferPage />} />
+        <Route
+          path="/"
+          element={
+            <MainLayout>
+              <HomePage />
+            </MainLayout>
+          }
+        />
+        <Route
+          path="/pricing"
+          element={
+            <MainLayout>
+              <PricingPage />
+            </MainLayout>
+          }
+        />
+      </Routes>
     </Router>
   );
 }
 
 export default App;
+
