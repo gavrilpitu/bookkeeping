@@ -34,14 +34,21 @@ interface ComparisonTier {
   savings: string;
 }
 
+const bookeeperRows: CostRow[] = [
+  { label: 'Base salary', amount: '$4,167/mo' },
+  { label: 'Payroll taxes (FICA ~7.65%)', amount: '$319/mo' },
+  { label: 'Health / dental / vision', amount: '$573/mo' },
+  { label: 'PTO & sick leave', amount: '$158/mo' },
+  { label: 'Recruiting & onboarding', amount: '$208/mo' },
+  { label: 'Training, errors & downtime', amount: '$100/mo' },
+];
+
 const comparisonTiers: ComparisonTier[] = [
   {
     key: 'essential',
     label: 'Essential',
     vsLabel: 'vs. Hiring a Full-Time Bookkeeper',
-    rows: [
-      { label: 'Full-time bookkeeper (salary + taxes + benefits)', amount: '$5,525/mo' },
-    ],
+    rows: bookeeperRows,
     marketTotal: '$5,525/mo',
     gpcPrice: '$497/mo',
     savings: '$5,028/mo',
@@ -51,8 +58,8 @@ const comparisonTiers: ComparisonTier[] = [
     label: 'Growth',
     vsLabel: 'vs. Bookkeeper + Accountant',
     rows: [
-      { label: 'Full-time bookkeeper (salary + taxes + benefits)', amount: '$5,525/mo' },
-      { label: 'Part-time accountant (20 hrs/mo at $150/hr)', amount: '$3,000/mo' },
+      ...bookeeperRows,
+      { label: 'Part-time accountant (20 hrs/mo)', amount: '$3,000/mo' },
     ],
     marketTotal: '$8,525/mo',
     gpcPrice: '$1,297/mo',
@@ -63,9 +70,9 @@ const comparisonTiers: ComparisonTier[] = [
     label: 'Scale',
     vsLabel: 'vs. Bookkeeper + Accountant + CFO',
     rows: [
-      { label: 'Full-time bookkeeper (salary + taxes + benefits)', amount: '$5,525/mo' },
-      { label: 'Part-time accountant (20 hrs/mo at $150/hr)', amount: '$3,000/mo' },
-      { label: 'Fractional CFO (10 hrs/mo at $350/hr)', amount: '$3,500/mo' },
+      ...bookeeperRows,
+      { label: 'Part-time accountant (20 hrs/mo)', amount: '$3,000/mo' },
+      { label: 'Fractional CFO (10 hrs/mo)', amount: '$3,500/mo' },
     ],
     marketTotal: '$12,025/mo',
     gpcPrice: '$2,697/mo',
