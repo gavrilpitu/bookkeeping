@@ -59,7 +59,7 @@ const comparisonTiers: ComparisonTier[] = [
     vsLabel: 'vs. Bookkeeper + Accountant',
     rows: [
       ...bookeeperRows,
-      { label: 'Part-time accountant (20 hrs/mo)', amount: '$3,000/mo' },
+      { label: 'Part-time accountant', amount: '$3,000/mo' },
     ],
     marketTotal: '$8,525/mo',
     gpcPrice: '$1,297/mo',
@@ -71,8 +71,8 @@ const comparisonTiers: ComparisonTier[] = [
     vsLabel: 'vs. Bookkeeper + Accountant + CFO',
     rows: [
       ...bookeeperRows,
-      { label: 'Part-time accountant (20 hrs/mo)', amount: '$3,000/mo' },
-      { label: 'Fractional CFO (10 hrs/mo)', amount: '$3,500/mo' },
+      { label: 'Part-time accountant', amount: '$3,000/mo' },
+      { label: 'Fractional CFO', amount: '$3,500/mo' },
     ],
     marketTotal: '$12,025/mo',
     gpcPrice: '$2,697/mo',
