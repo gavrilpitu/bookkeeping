@@ -34,7 +34,7 @@ const Services: React.FC = () => {
   ];
 
   return (
-    <section id="services" className="pb-12 lg:pb-16 pt-4 lg:pt-6 bg-white">
+    <section id="services" className="scroll-mt-20 pb-12 lg:pb-16 pt-4 lg:pt-6 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">

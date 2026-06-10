@@ -3,7 +3,7 @@ import { MapPin } from 'lucide-react';
 
 const ServiceAreas: React.FC = () => {
   return (
-    <section id="service-areas" className="py-12 lg:py-14 bg-gradient-to-br from-amber-50 via-white to-orange-50">
+    <section id="service-areas" className="scroll-mt-20 py-12 lg:py-14 bg-gradient-to-br from-amber-50 via-white to-orange-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-8">
           <div className="inline-flex items-center gap-2 bg-amber-100 text-amber-800 px-4 py-2 rounded-full text-sm font-medium mb-4">

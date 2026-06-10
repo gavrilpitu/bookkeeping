@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
           <div className="space-y-6">
             <div className="space-y-3">
-              <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
+              <h1 className="text-3xl lg:text-5xl xl:text-6xl font-bold text-gray-900 leading-tight">
                 Guaranteed
                 <span className="text-blue-700 block">Clean Books</span>
                 Every Month — Or You Don't Pay

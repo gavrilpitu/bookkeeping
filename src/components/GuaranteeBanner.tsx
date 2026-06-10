@@ -3,7 +3,7 @@ import { ShieldCheck } from 'lucide-react';
 
 const GuaranteeBanner: React.FC = () => {
   return (
-    <section className="bg-blue-700 py-12">
+    <section className="scroll-mt-20 bg-blue-700 py-12">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center gap-6">
           <div className="shrink-0">

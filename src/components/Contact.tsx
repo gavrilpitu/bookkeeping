@@ -56,7 +56,7 @@ const Contact: React.FC = () => {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-6 lg:py-8 bg-gradient-to-br from-blue-50 to-teal-50">
+      <section id="contact" className="scroll-mt-20 py-6 lg:py-8 bg-gradient-to-br from-blue-50 to-teal-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="bg-white rounded-2xl p-12 shadow-xl">
             <CheckCircle className="h-16 w-16 text-green-600 mx-auto mb-6" />
@@ -72,7 +72,7 @@ const Contact: React.FC = () => {
   }
 
   return (
-    <section id="contact" className="py-6 lg:py-8 bg-gradient-to-br from-blue-50 to-teal-50">
+    <section id="contact" className="scroll-mt-20 py-6 lg:py-8 bg-gradient-to-br from-blue-50 to-teal-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">

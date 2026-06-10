@@ -31,7 +31,7 @@ const About: React.FC = () => {
   };
 
   return (
-    <section id="about">
+    <section id="about" className="scroll-mt-20">
       <div className="py-12 lg:py-16 bg-gradient-to-b from-blue-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-10 items-start">

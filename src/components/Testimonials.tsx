@@ -183,7 +183,7 @@ const Testimonials: React.FC = () => {
   const nextMobile = () => setMobileCurrent((c) => (c + 1) % testimonials.length);
 
   return (
-    <section id="testimonials" className="py-16 lg:py-20 bg-gray-50">
+    <section id="testimonials" className="scroll-mt-20 py-16 lg:py-20 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-1.5 bg-yellow-50 border border-yellow-200 rounded-full px-4 py-1.5 mb-4">
@@ -254,7 +254,12 @@ const Testimonials: React.FC = () => {
             >
               <ChevronLeft className="w-5 h-5" />
             </button>
-            <div className="flex gap-1.5 flex-wrap justify-center max-w-[200px]">
+            {/* Mobile: text counter */}
+            <span className="text-sm font-medium text-gray-500 sm:hidden tabular-nums">
+              {mobileCurrent + 1} / {testimonials.length}
+            </span>
+            {/* sm+: dot indicators */}
+            <div className="hidden sm:flex gap-1.5 flex-wrap justify-center max-w-[200px]">
               {testimonials.map((_, i) => (
                 <button
                   key={i}
