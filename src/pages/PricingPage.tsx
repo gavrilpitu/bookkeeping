@@ -38,49 +38,42 @@ const comparisonTiers: ComparisonTier[] = [
   {
     key: 'essential',
     label: 'Essential',
-    vsLabel: 'vs. Hiring a Bookkeeper',
+    vsLabel: 'vs. Hiring a Full-Time Bookkeeper',
     rows: [
-      { label: 'Part-time bookkeeper (20 hrs/mo)', amount: '$3,600/mo' },
-      { label: 'QuickBooks subscription', amount: '$85/mo' },
-      { label: 'Payroll taxes & benefits', amount: '$720/mo' },
-      { label: 'Recruiting & onboarding costs', amount: '$1,205/mo' },
+      { label: 'Full-time bookkeeper (salary + taxes + benefits)', amount: '$5,525/mo' },
     ],
-    marketTotal: '$5,610/mo',
+    marketTotal: '$5,525/mo',
     gpcPrice: '$497/mo',
-    savings: '$5,113/mo',
+    savings: '$5,028/mo',
   },
   {
     key: 'growth',
     label: 'Growth',
     vsLabel: 'vs. Bookkeeper + Accountant',
     rows: [
-      { label: 'Part-time bookkeeper (20 hrs/mo)', amount: '$3,200/mo' },
-      { label: 'Fractional accountant (5 hrs/mo)', amount: '$1,600/mo' },
-      { label: 'QuickBooks subscription', amount: '$85/mo' },
-      { label: 'Payroll taxes & benefits (est.)', amount: '$640/mo' },
+      { label: 'Full-time bookkeeper (salary + taxes + benefits)', amount: '$5,525/mo' },
+      { label: 'Part-time accountant (20 hrs/mo at $150/hr)', amount: '$3,000/mo' },
     ],
-    marketTotal: '$5,525/mo',
+    marketTotal: '$8,525/mo',
     gpcPrice: '$1,297/mo',
-    savings: '$4,228/mo',
+    savings: '$7,228/mo',
   },
   {
     key: 'scale',
     label: 'Scale',
-    vsLabel: 'vs. Full CFO Team',
+    vsLabel: 'vs. Bookkeeper + Accountant + CFO',
     rows: [
-      { label: 'Full-time CFO salary (prorated)', amount: '$10,000/mo' },
-      { label: 'Senior accountant (full-time)', amount: '$5,200/mo' },
-      { label: 'QuickBooks + reporting tools', amount: '$390/mo' },
-      { label: 'Benefits & overhead (est. 30%)', amount: '$800/mo' },
+      { label: 'Full-time bookkeeper (salary + taxes + benefits)', amount: '$5,525/mo' },
+      { label: 'Part-time accountant (20 hrs/mo at $150/hr)', amount: '$3,000/mo' },
+      { label: 'Fractional CFO (10 hrs/mo at $350/hr)', amount: '$3,500/mo' },
     ],
-    marketTotal: '$16,390/mo',
+    marketTotal: '$12,025/mo',
     gpcPrice: '$2,697/mo',
-    savings: '$13,693/mo',
+    savings: '$9,328/mo',
   },
 ];
 
-const CostComparison: React.FC = () => {
-  const [active, setActive] = useState<TierKey>('growth');
+const CostComparison: React.FC<{ active: TierKey; onActiveChange: (t: TierKey) => void }> = ({ active, onActiveChange }) => {
   const tier = comparisonTiers.find((t) => t.key === active)!;
 
   return (
@@ -98,7 +91,7 @@ const CostComparison: React.FC = () => {
           {comparisonTiers.map(({ key, label }) => (
             <button
               key={key}
-              onClick={() => setActive(key)}
+              onClick={() => onActiveChange(key)}
               className={`flex-1 py-2 px-4 rounded-lg text-sm font-semibold transition-all duration-200 ${
                 active === key
                   ? 'bg-white text-blue-700 shadow-sm border border-gray-200'
@@ -271,7 +264,7 @@ const PricingPage: React.FC = () => {
     },
     {
       question: 'Do you offer annual discounts?',
-      answer: 'Yes! Pay annually and receive 2 months free. Contact us to set up annual billing.',
+      answer: 'Yes — pay annually and save 11% compared to monthly billing. Contact us to set up annual billing.',
     },
     {
       question: 'What accounting software do you support?',
@@ -332,7 +325,7 @@ const PricingPage: React.FC = () => {
           </div>
 
           {/* Cost comparison */}
-          <CostComparison />
+          <CostComparison active={selectedTier} onActiveChange={setSelectedTier} />
 
           {/* Scarcity pill */}
           <div className="flex justify-center mb-10">

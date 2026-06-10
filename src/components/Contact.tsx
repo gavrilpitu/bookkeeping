@@ -76,17 +76,17 @@ const Contact: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-6">
           <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-3">
-            Book Your Free Financial Health Check
+            Get My Free QuickBooks Cleanup
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-            Let's discuss how we can help streamline your bookkeeping and financial management. Get your free consultation today.
+            The next 5 new clients to start a monthly plan get their full QuickBooks cleanup &amp; catch-up done free — a tax-ready fresh start at no extra cost.
           </p>
         </div>
 
         <div className="grid lg:grid-cols-3 gap-8">
           <div className="lg:col-span-2">
             <div className="bg-white rounded-2xl p-8 shadow-xl">
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get Your Free Consultation</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-6">Get My Free QuickBooks Cleanup</h3>
 
               {error && (
                 <div className="mb-6 flex items-start space-x-3 bg-red-50 border border-red-200 rounded-lg p-4">
@@ -198,7 +198,7 @@ const Contact: React.FC = () => {
                 </div>
 
                 <p className="text-sm italic text-gray-400 text-center">
-                  We only take 5 new clients per month. If you're seeing this, spots are still available.
+                  The next 5 new clients to start a monthly plan get their full QuickBooks cleanup &amp; catch-up done free.
                 </p>
 
                 <button
