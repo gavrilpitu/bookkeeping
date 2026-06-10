@@ -130,13 +130,13 @@ const CostComparison: React.FC<{ active: TierKey; onActiveChange: (t: TierKey) =
                   <td className="py-3.5 px-5 text-sm text-gray-700 text-right font-medium">{row.amount}</td>
                 </tr>
               ))}
-              <tr className="bg-red-600">
-                <td className="py-4 px-5 text-sm font-bold text-white">Market total</td>
-                <td className="py-4 px-5 text-sm font-bold text-white text-right">{tier.marketTotal}</td>
+              <tr className="bg-red-50">
+                <td className="py-4 px-5 text-sm font-bold text-red-700">Market total</td>
+                <td className="py-4 px-5 text-sm font-bold text-red-700 text-right">{tier.marketTotal}</td>
               </tr>
-              <tr className="bg-blue-700">
-                <td className="py-4 px-5 text-sm font-bold text-white">GPC {tier.label} plan</td>
-                <td className="py-4 px-5 text-sm font-bold text-white text-right">{tier.gpcPrice}</td>
+              <tr className="bg-blue-50">
+                <td className="py-4 px-5 text-sm font-bold text-blue-700">GPC {tier.label} plan</td>
+                <td className="py-4 px-5 text-sm font-bold text-blue-700 text-right">{tier.gpcPrice}</td>
               </tr>
               <tr className="bg-green-50">
                 <td className="py-4 px-5 text-sm font-bold text-green-700">You save</td>
