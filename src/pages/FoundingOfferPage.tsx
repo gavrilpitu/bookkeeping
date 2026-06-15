@@ -115,11 +115,11 @@ const FoundingOfferPage: React.FC = () => {
             <span className="font-bold text-gray-900 text-lg">GPC Bookkeeping</span>
           </div>
           <a
-            href="tel:6028882841"
+            href="tel:+12485952511"
             className="inline-flex items-center gap-2 text-sm font-medium text-blue-700 hover:text-blue-800 transition-colors"
           >
             <Phone className="h-4 w-4" />
-            (602) 888-2841
+            (248) 595-2511
           </a>
         </div>
       </header>
@@ -365,9 +365,9 @@ const FoundingOfferPage: React.FC = () => {
             GPC Bookkeeping
           </div>
           <div className="flex flex-wrap justify-center gap-5">
-            <a href="tel:6028882841" className="flex items-center gap-1.5 hover:text-white transition-colors">
+            <a href="tel:+12485952511" className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Phone className="h-4 w-4" />
-              (602) 888-2841
+              (248) 595-2511
             </a>
             <a href="mailto:info@gpcbookkeeping.com" className="flex items-center gap-1.5 hover:text-white transition-colors">
               <Mail className="h-4 w-4" />
