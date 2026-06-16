@@ -142,7 +142,7 @@ const FoundingOfferPage: React.FC = () => {
           {/* FIX 2: exact subhead */}
           <p className="text-gray-600 text-lg sm:text-xl leading-relaxed max-w-2xl mx-auto mb-8">
             Sign a monthly bookkeeping plan and we'll get your books completely current — every month
-            behind, waived. Plus your founding rate locked for life.
+            behind, waived. Plus your rate locked for life.
           </p>
 
           <button
