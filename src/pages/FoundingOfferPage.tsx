@@ -185,7 +185,7 @@ const FoundingOfferPage: React.FC = () => {
               },
               {
                 title: 'Dedicated ProAdvisor Support',
-                body: 'Direct access to Gavril — a QuickBooks ProAdvisor Gold — not a ticketing queue or offshore team.',
+                body: 'Direct access to a QuickBooks ProAdvisor Gold — not a ticketing queue or offshore team.',
               },
               {
                 title: 'Tax-Ready Handoff',
@@ -347,7 +347,7 @@ const FoundingOfferPage: React.FC = () => {
               Book Your Free Strategy Call
             </h2>
             <p className="text-gray-600">
-              Pick a time that works for you — Gavril will walk through your books situation and get everything set up.
+              Pick a time that works for you — we'll walk through your books situation and get everything set up.
             </p>
           </div>
 
