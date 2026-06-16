@@ -152,7 +152,13 @@ const FoundingOfferPage: React.FC = () => {
             Claim My Free Cleanup
             <ArrowRight className="h-5 w-5" />
           </button>
-          <p className="text-gray-400 text-sm mt-3">No credit card. No commitment. Cancel any time.</p>
+          <div className="flex items-center justify-center gap-1.5 mt-3">
+            {Array.from({ length: 5 }).map((_, i) => (
+              <Star key={i} className="h-3.5 w-3.5 fill-current text-amber-400" />
+            ))}
+            <span className="text-gray-500 text-xs ml-1"><strong className="text-gray-700">5.0</strong> &middot; 18 Google reviews</span>
+          </div>
+          <p className="text-gray-400 text-sm mt-1.5">No credit card. No commitment. Cancel any time.</p>
         </div>
       </section>
 
@@ -160,7 +166,7 @@ const FoundingOfferPage: React.FC = () => {
       <section className="py-14 sm:py-16 bg-gray-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6">
           <h2 className="text-2xl sm:text-3xl font-bold text-gray-900 text-center mb-10">
-            Everything Included in the Founding Offer
+            Everything Included
           </h2>
           <div className="grid sm:grid-cols-2 gap-5">
             {[
@@ -211,7 +217,7 @@ const FoundingOfferPage: React.FC = () => {
             </h2>
             <div className="inline-flex items-center gap-2 bg-blue-50 border border-blue-100 text-blue-800 text-sm font-semibold px-5 py-2 rounded-full">
               <Sparkles className="h-4 w-4" />
-              Founding 5 clients lock these rates for life.
+              Next 5 clients lock these rates for life.
             </div>
           </div>
 
@@ -308,7 +314,7 @@ const FoundingOfferPage: React.FC = () => {
                 <Star key={i} className="h-5 w-5 fill-current text-yellow-400" />
               ))}
             </div>
-            <p className="text-sm font-semibold text-gray-700">5.0 on Google — 14 reviews</p>
+            <p className="text-sm font-semibold text-gray-700">5.0 on Google — 18 reviews</p>
           </div>
           <div className="grid sm:grid-cols-3 gap-5">
             {testimonials.map((t, i) => (
